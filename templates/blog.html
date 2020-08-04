@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+{% import "bootstrap/wtf.html" as wtf %}
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>uzu solutions|Blog</title>
+
+
+   <link rel="icon"  href="img/corp.png" type="image/x-icon">
+
+  <!-- Custom fonts for this template -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap core CSS -->
+
+     <link href="{{ url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static', filename='css/clean-blog.min.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/index.css')}}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+    <div class="header-main border-bottom">
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light shadow  bg-white fixed-top py-1 ">
+      <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='img/corp.png') }}" width="30px" height="30px"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto text-capitalize">
+
+
+            <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" data-abc="true" aria-expanded="false">CATEGORIES</a>
+                        <div class="dropdown-menu">
+                            {% if categories %}
+                            {% for i in categories %}
+                            <a class="dropdown-item" href="" data-abc="true">{{i[0]}}</a>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                    </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="/blog/announcements">Announcements</a>
+          </li>
+            <li class="nav-item dropdown"> <a class="nav-link activeItem dropdown-toggle" href="" data-toggle="dropdown" data-abc="true" aria-expanded="false">Blog</a>
+                        <div class="dropdown-menu"> <a class="dropdown-item" href="/" data-abc="true">Home</a> <a class="dropdown-item" href="/about" data-abc="true">About us</a> <a class="dropdown-item" href="/services" data-abc="true">Services</a> <a class="dropdown-item" href="/projects" data-abc="true">Projects</a> </div>
+                    </li>
+          <li class="nav-item">
+            <a class="nav-link  bg-yellow" href="#"  data-toggle="modal" data-target="#modalRegisterForm">chat with us</a>
+
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image:url({{ url_for('static', filename='img/home-bg.jpg')}})">
+    <div class="overlay"></div>
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="" style="margin-top: 50px !important;">
+            <ul>
+                {% for message in messages %}
+                <div class="alert alert-info " role="alert">{{ message }}</div>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% endwith %}
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Uzu solutions</h1>
+            <span class="desc">#Doings</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+
+
+
+  <div class="container">
+
+
+      <div class="col-lg-8 col-md-10 mx-auto">
+           <div class="col-10 text-center">
+                <h1 class="mt-5 mb-5 h1-responsive">Latest Doings</h1>
+            </div>
+
+
+          {% for post in posts %}
+          <div class="row">
+          <div class="col-md-3">
+              <img class="img-fluid" src="{{ url_for('static', filename='/uploads/' + post.featured_image + '.png' ) }}" style="height:auto;, width:auto;">
+          </div>
+          <div class="col-md-8 post-preview">
+              <a href="blog-post.html">
+                  <h2 class="post-title">
+                      <a href="{{ url_for('detail',slug=post.slug) }}">{{ post.title }}</a>
+                  </h2>
+
+              </a>
+              <h5>Category: {{ post.category }}</h5>
+              <p class="post-meta">Posted by
+                  <a href="#">{{ post.author.username }}</a>
+                  on {{post.timestamp.strftime('%m/%d/%Y at %G:%I%p') }}</p>
+          </div>
+              </div>
+            <hr>
+          {% endfor %}
+
+        <!-- Pager -->
+          <div class="container">
+            <div class="row">
+                <div class="col-md-4" style="color:green">
+                    {% if prev_url %}
+                    <a href="{{ prev_url }}" class="page-link"><span aria-hidden="true">&larr;</span> Newer posts</a>
+                    {% endif %}
+
+                </div>
+                <div class="col-md-4" style="color:green">
+                    {% if next_url %}
+                    <a href="{{ next_url }}"class="page-link">Older posts <span aria-hidden="true">&rarr;</span></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  <hr>
+
+      <!--div class="container ">
+          <div class="col mx-auto text-center"> <h4 class=" font-weight-light text-center">We are uzu solutions.We build amazing software solutions for businesses</h4>
+          <p>#web development,#mobile development #DApps and blockchain,#Testing and Debugging</p>
+
+          </div>
+
+      </div-->
+
+
+    <!-- Footer -->
+<footer class=" pt-4 pb-5 mb-3">
+
+
+
+            <section class="talk-to-us py-5" id="talk-to-us">
+                <div class="container">
+
+                 <h2 class="text-center mb-3"> Talk to us</h2>
+                     <hr class="dividing">
+                     <p class="lead text-center">Let us know what we can do for you,We are always online 24/7/365  <span class="reprate"><i class="text-center">minimum reply rate 5mins</i> </span></p>.
+                    <div class="row">
+                    <div class="col-md-6 mt-md-5">
+
+                    <img class="img-fluid " src="{{ url_for('static',filename='img/Telecommuting-rafiki.svg') }}">
+                    </div>
+                        <div class="col-md-5 mx-auto my-auto ">
+                        <div class="d-flex flex-column align-items-center">
+
+
+
+
+
+                    <div class="mt-4 pt-4">
+                      <form action="/" method="post" role="form">
+                          {{ form.hidden_tag() }}
+                        <div class="row">
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.name) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                            <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.job_title) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                             <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.business_name) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.email) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.subject) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.message) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 text-center mb-3">
+
+                          </div>
+                          <div class="col-md-12 text-center">
+                            <button type="submit" class="button button-a button-big button-rounded btn-warning">Send Message</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                           <div class="pt-4"> <p class="text-center">or</p>
+
+                           <ul class="list-unstyled list-inline text-center">
+                               <li class="list-inline-item">
+                                  <p>Talk to a human <strong>ASAP</strong></p>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-fb mx-1">
+                                       <i class="fas fa-phone-alt"></i>
+                                   </a>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-tw mx-1">
+                                       <i class="fab fa-whatsapp"></i>
+                                   </a>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-gplus mx-1">
+                                       <i class="fab fa-telegram-plane"></i>
+                                   </a>
+                               </li>
+
+
+                           </ul>
+                       </div>
+                <!-- <a  class="btn  text-center  text-uppercase bg-yellow" href="" data-toggle="modal" data-target="#modalRegisterForm">start E-consultation</a>-->
+
+
+
+
+                           <!-- Social buttons -->
+
+
+                        </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+     <hr class="w-100 footer-divide">
+
+
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+    <div class=""></div>
+
+        <!--start footer section-->
+        <section class="mt-5 mx-auto">
+             <div class="container  text-center w-50">
+                 <img class="img-fluid" src="{{ url_for('static',filename='img/corp.png') }}">
+                <h2 class="pt-3 pb-5 mb-5 text-capitalize">uzu solutions</h2>
+            </div>
+
+        </section>
+    <!-- Grid row -->
+    <div class="row mt-3 ">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mx-auto">
+
+        <h5 class="">We live online.</h5>
+
+<ul class="list-unstyled mt-0 pt-0 ">
+       <li class="pt-0">
+       <p class="pb-0 mb-1">Connect with us</p>
+    </li>
+ <!-- Social buttons -->
+
+    <li class="list-inline-item pt-0">
+      <a class="btn-floating btn-fb mx-1">
+        <i class="fab fa-facebook-f"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-tw mx-1">
+        <i class="fab fa-twitter"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-gplus mx-1">
+        <i class="fab fa-google-plus-g"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-li mx-1">
+        <i class="fab fa-linkedin-in"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-dribbble mx-1">
+        <i class="fab fa-dribbble"> </i>
+      </a>
+    </li>
+  </ul>
+      </div>
+
+
+      <!-- Grid column -->
+
+      <hr class="dividing">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mx-auto">
+
+        <!-- Links -->
+
+      <h5 class=" text-capitalize mb-2">Head Office</h5>
+      <p><a class="" href="#">@CTRL-X hub,</a><br>
+        FUTO,Owerri,Imo state,Nigeria.</p>
+
+
+
+        </div>
+        <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+       <!-- Grid column -->
+      <div class="col-md-4 mx-auto">
+
+        <!-- Links -->
+
+          <h5 class=" text-capitalize">Opening hours</h5>
+         <ul class="list-unstyled"><li><p>Mon-Fri 09:00 - 18:00 (GMT+1)<br>Mon-Fri 09:00 - 18:00 (GMT+1)</p></li></ul>
+
+
+
+        </div>
+        <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+
+
+  <hr class="w-100 footer-divide">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="#"> uzu solutions</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+
+
+     <!--mobile Footer -->    <div class="footer-mob  d-block d-sm-none d-lg-none">
+
+
+
+    <nav class="nav bottom fixed-bottom ">
+        <a href="/" class="nav__link active  py-1">
+        <i class="material-icons nav__icon" >home</i>
+        <span class="nav__icon">Home</span>
+    </a>
+
+        <a href="/about" class="nav__link py-1">
+        <i class="material-icons nav__icon" >group</i>
+        <span class="nav__icon">About us</span>
+    </a>
+        <a href="/projects" class="nav__link py-1">
+        <i class="material-icons nav__icon" >folder</i>
+        <span class="nav__icon">Portfolio</span>
+    </a>
+        <a href="talk.html" class="nav__link py-1"  data-toggle="modal" data-target="#modalRegisterForm">
+        <i class="material-icons nav__icon" >message</i>
+        <span class="nav__icon">Chat with us</span>
+    </a>
+
+    </nav>
+
+
+
+    </div>
+
+
+
+
+
+
+<!--modal-->
+
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+          <div class="modal-header text-center ">
+
+
+
+
+                     <hr class="dividing">
+
+        <!--h4 class="modal-title w-100 font-weight-bold">Consultation</h4-->
+        <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <section class="mt-3 mx-auto">
+             <div class="container  text-center w-100">
+                 <img class="img-fluid" src="{{ url_for('static', filename='img/corp.png')}}" style="min-width:40px; max-height: 40px; ">
+                <h6 class="pt-2 text-capitalize ">uzu solutions</h6>
+            </div>
+
+        </section>
+
+      <div class="modal-body mx-1">
+          <h2 class="text-center mb-3 w-100 mx-auto"> Talk to us</h2>
+
+                        <div class="col-md-12 mx-auto my-auto ">
+                        <div class="d-flex flex-column align-items-center">
+
+
+
+
+
+                    <div class="mt-4 pt-4">
+                      <form action="/" method="post" role="form">
+                          {{ form.hidden_tag() }}
+                        <div class="row">
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.name) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                            <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.job_title) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                             <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.business_name) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.email) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.subject) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.message) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 text-center mb-3">
+
+                          </div>
+                          <div class="col-md-12 text-center">
+                            <button type="submit" class="button button-a button-big button-rounded btn-warning">Send Message</button>
+                          </div>
+                        </div>
+                      </form>
+
+                    </div>
+                           <div class="pt-4"> <p class="text-center">or</p>
+
+                           <ul class="list-unstyled list-inline text-center">
+                               <li class="list-inline-md-item">
+                                  <p>Talk to a human <strong>ASAP</strong></p>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-fb mx-1">
+                                       <i class="fas fa-phone-alt"></i>
+                                   </a>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-tw mx-1">
+                                       <i class="fab fa-whatsapp"></i>
+                                   </a>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-gplus mx-1">
+                                       <i class="fab fa-telegram-plane"></i>
+                                   </a>
+                               </li>
+
+
+                           </ul>
+                       </div>
+                <!-- <a  class="btn  text-center  text-uppercase bg-yellow" href="" data-toggle="modal" data-target="#modalRegisterForm">start E-consultation</a>-->
+
+
+
+
+                           <!-- Social buttons -->
+
+
+                        </div>
+
+
+
+                        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{{ url_for('static', filename='js/clean-blog.min.js') }}"></script>
+
+</body>
+
+</html>

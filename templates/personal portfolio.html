@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en" class="full-height">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>uzu solutions</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css'}}">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/mdb.min.css'}}">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style3.css'}}">
+    
+    
+    <style>
+        #plx {
+            
+            background-image: url("{{ url_for('static', filename='css/peronalptfolio.jpg'}}");
+            height: 712px;
+            margin-bottom: 10px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target="#navbar-example2">
+    
+    
+    
+    <section id="plx" class="img-fluid">
+        
+        
+        
+               
+        
+        
+  <!-- home -->
+       
+  <div class="container text-center h-100  mt-5 pt-5">
+
+    <!-- Grid row -->
+    <div class="row mt-md-5 mb-md-5">
+
+      <!-- Grid column -->
+      <div class="col-md-8 mr-auto mt-4 text-left mb-md-5  ">
+
+        <!-- Content -->
+        <h1 class=" h1-responsive font-weight-bold text-capitalize   mt-5  pt-5 mb-4">Welcome to my World</h1>
+          
+        <h2 class="text-capitalize mt-4 mb-2  pb-md-2 pt-md-4"> {{ display_name }} </h2>
+             
+             <h4 class="pt-2">{{ role }}}}</h4>
+        
+        </div>
+        <div class="col-md-6 mr-auto mt-3 text-left mb-md-3 ">
+        
+            <div class="row row-cols-3">
+                <div class="col">
+                    <h5 class="font-weight-bold">
+                        <a class="btn-floating  mx-1">
+                            <i class="fas fa-map-marker-alt"></i> Location
+                        </a>
+                    </h5>
+                    <p>Kafanchan,Nigeria.</p>
+                </div> 
+               
+                  <div class="col">
+                    <h5 class="font-weight-bold">
+                        <a class="btn-floating  mx-1">
+                            <i class="fas fa-phone-alt"></i> Phone
+                        </a>
+                    </h5>
+                    <p>+234 812 246 3202</p>
+                </div>
+                  <div class="col">
+                    <h5 class="font-weight-bold">
+                        <a class="btn-floating  mx-1">
+                           <i class="fas fa-envelope-open"></i> Email
+                        </a>
+                    </h5>
+                    <p>Dino16m@uzusolutions.com</p>
+                </div>
+            
+            </div>
+        </div>
+          
+          
+         
+
+      </div>
+      <!-- Grid column -->
+
+ 
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      </div>
+      <!-- Grid column -->
+            
+             </section>
+
+ 
+         <!--Main Layout-->
+        <main class="mt-auto">
+            
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top scrolling-navbar">
+    <div class="container">
+        <!-- Navbar brand -->
+  
+   <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-example" aria-controls="basicExampleNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse d-flex justify-content-center  " id="navbar-example2">
+
+      <!-- Links -->
+      <ul class="nav nav-pills" role="tablist">
+          <li class="nav-item active">
+              <a class="nav-link mt-2" href="#plx">Home
+                  <span class="sr-only">(current)</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link mt-2" href="#about-me">About me</a>
+          </li>
+        <li class="nav-item">
+              <a class="nav-link mt-2" href="#skills">skills</a>
+          </li>
+    
+          <li class="nav-item">
+              <a class="nav-link mt-2" href="#profiles">profiles</a>
+          </li>
+           <li class="nav-item">
+              <a  class="nav-link mt-2" href="#freelance" >Projects</a>
+          </li> 
+          
+         
+          
+      </ul>
+      
+      <!-- Links -->
+                </div>
+  
+  <!-- Collapsible content -->
+    </div>
+  
+</nav>            
+    
+               <!--about me-->
+            <section class="about-me  py-5" id="about-me">
+                <div class="container text-center text-md-left">
+
+                    <div class="row mt-5">
+<!-- Grid column -->
+                        <div  class="col-md-4 mx-auto d-flex flex-column justify-content-center align-items-center">
+                            <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='img/peronalptfolio.jpg'}}" style="width: 80%; height: auto;">
+                            <h2 class="font-weight-bold text-capitalize pl-3 mt-3"><span class="yellow">A</span>bout me</h2>
+
+                        </div>
+
+                        <!-- Grid column -->
+                        <div class="col-md-8 mx-auto">
+
+                            <!-- Content -->
+
+                            <p class=" lead mt-3">{{ about_me }}</p>
+                            <p class=" lead mt-3">Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas
+                                nostrum quisquam eum porro a pariatur veniam.</p>
+
+                            <hr class="clearfix w-100 d-md-none">
+
+
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+                   
+                    </div>
+            
+            </section>
+            
+            <hr class="clear-fix w-100">
+                     <!--expertise-->
+            <section class="expertise  py-5" id="expertise">
+                <div class="container text-center text-md-left">
+
+                    <div class="row mt-5">
+<!-- Grid column -->
+                        <div  class="col-md-4 mx-auto d-flex justify-content-center align-items-center">
+                            <h2 class="font-weight-bold text-capitalize mt-3">e<span class="yellow">x</span>pertise</h2>
+
+                        </div>
+
+                        <!-- Grid column -->
+                        <div class="col-md-4 mx-auto">
+
+                             <!-- Content -->
+
+                            <p class=" lead mt-3">{{ expertise }}}}</p>
+                             
+                              <hr class="clearfix w-100 d-md-none">
+                             
+                             <p class=" lead mt-5">Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas
+                                nostrum quisquam eum porro a pariatur veniam.</p>
+                           
+                            <hr class="clearfix w-100 d-md-none">
+
+                             <p class=" lead mt-5">Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas
+                                nostrum quisquam eum porro a pariatur veniam.</p>
+                           
+                           
+
+
+                        </div>
+                         <div class="col-md-4 mx-auto">
+
+                            <!-- Content -->
+
+                            <p class=" lead mt-3">Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas
+                                nostrum quisquam eum porro a pariatur veniam.</p>
+                             
+                              <hr class="clearfix w-100 d-md-none">
+                             
+                             <p class=" lead mt-5">Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas
+                                nostrum quisquam eum porro a pariatur veniam.</p>
+                           
+                            <hr class="clearfix w-100 d-md-none">
+
+                             <p class=" lead mt-5">Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas
+                                nostrum quisquam eum porro a pariatur veniam.</p>
+                           
+                        </div>
+                        
+                        
+                        <!-- Grid row -->
+                    </div>
+                   
+                    </div>
+            
+            </section>
+  
+            
+            
+            
+             <hr class="clear-fix w-100">
+            
+            
+            
+               <!--skills-->
+            <section class="skills  py-5" id="skills">
+                <div class="container text-center text-md-left">
+
+                    <div class="row mt-5">
+<!-- Grid column -->
+                        <div class="col-md-4 mx-auto d-flex justify-content-center align-items-center">
+                            <h2 class="font-weight-bold text-capitalize mt-3">sk<span class="yellow">i</span>lls</h2>
+
+                        </div>
+
+                        <!-- Grid column -->
+                        <div class="col-md-4 mx-auto">
+
+                            <!-- Content -->
+
+                            <label>C++</label>
+                            <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%; " aria-valuenow="0" aria-valuemin="0" aria-vauemax="100">
+                                {{ c_plus }}%
+                            </div>
+                            </div>
+                            <!-- Content -->
+
+                            <label>C</label>
+                            <div class="progress">
+                           <div class="progress-bar" role="progressbar" style="width: 0%; " aria-valuenow="0" aria-valuemin="0" aria-vauemax="100">
+                                {{ c }}%
+                            </div>
+                            </div>
+                            <!-- Content -->
+
+                            <label>Css</label>
+                            <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%; " aria-valuenow="0" aria-valuemin="0" aria-vauemax="100">
+                                {{ css }}%
+                            </div>
+                            </div>
+                            <!-- Content -->
+
+                            <label>Html</label>
+                            <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%; " aria-valuenow="0" aria-valuemin="0" aria-vauemax="100">
+                                {{ html }}%
+                            </div>
+                            </div>
+                            <!-- Content -->
+
+                            <label>Java</label>
+                            <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%; " aria-valuenow="0" aria-valuemin="0" aria-vauemax="100">
+                                {{ java }}%
+                            </div>
+                            </div>
+                            <!-- Content -->
+
+                            <label>Javascript</label>
+                            <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%; " aria-valuenow="0" aria-valuemin="0" aria-vauemax="100">
+                                {{ javascript }}%
+                            </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4 mx-auto">
+
+
+                            <!-- Content -->
+
+                            <label>Php</label>
+                            <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%; " aria-valuenow="0" aria-valuemin="0" aria-vauemax="100">
+                                {{ php }}%
+                            </div>
+                            </div>
+                            
+                            <label>Python</label>
+                            <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%; " aria-valuenow="0" aria-valuemin="0" aria-vauemax="100">
+                                {{python}}%
+                            </div>
+                            </div>
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+                   
+                    </div>
+            
+            </section>
+            <!-- Section:skills -->
+            
+            
+            
+             <hr class="clear-fix w-100">
+            
+               <!--experience-->
+            <section class="experience  py-5" id="experience">
+                <div class="container text-center text-md-left">
+
+                    <div class="row mt-5">
+<!-- Grid column -->
+                        <div  class="col-md-4 mx-auto d-flex justify-content-center align-items-center">
+                            <h2 class="font-weight-bold text-capitalize mt-3">Experience</h2>
+
+                        </div>
+
+                        <!-- Grid column -->
+                        <div class="col-md-8 mx-auto">
+
+                            <!-- Content -->
+
+
+<div class="container mt-5 mb-5">
+	<div class="row">
+		<div class="col-md-12 ">
+			
+			<ul class="timeline">
+                
+                
+				
+				<li>
+					
+                    <div class="row">
+                    <div class="col-md-5">
+                        <p class="font-small">{{ e_year }}-present<br>
+                       <span class="font-bold">{{ e_company }}</span></p>
+                        <p class="font-small">{{ e_role }}
+                       <br>(remote)</p>
+                    </div>
+                    <div class="col-md-7">
+        
+					<p>{{ e_details }}...</p>
+                        </div>
+                    
+                    </div>
+                    
+				</li>
+				<li>
+					
+                   
+                    <div class="row">
+                    <div class="col-md-5">
+                        <p class="font-small">{{ a_year }}-present<br>
+                       <span class="font-bold">Uzu solutions</span></p>
+                        <p class="font-small">DevOps, Lead Developer & Project Manager
+                       <br>(remote)</p>
+                    </div>
+                    <div class="col-md-7">
+        
+					<p>Curabitur purus sem, malesuada eu luctus eget, suscipit sed turpis. Nam pellentesque felis vitae justo accumsan, sed semper nisi sollicitudin...</p>
+                        </div>
+                    
+                    </div>
+                    
+				</li>
+                <li>
+					
+                     <div class="row">
+                    <div class="col-md-5">
+                        <p class="font-small">2017-present<br>
+                       <span class="font-bold">Uzu solutions</span></p>
+                        <p class="font-small">DevOps, Lead Developer & Project Manager
+                       <br>(remote)</p>
+                    </div>
+                    <div class="col-md-7">
+        
+					<p>Curabitur purus sem, malesuada eu luctus eget, suscipit sed turpis. Nam pellentesque felis vitae justo accumsan, sed semper nisi sollicitudin...</p>
+                        </div>
+                    
+                    </div>
+				</li>
+                
+                
+                <li>
+					
+                    <div class="row">
+                    <div class="col-md-5">
+                        <p class="font-small">2017-present<br>
+                       <span class="font-bold">Uzu solutions</span></p>
+                        <p class="font-small">DevOps, Lead Developer & Project Manager
+                       <br>(remote)</p>
+                    </div>
+                    <div class="col-md-7">
+        
+					<p>Curabitur purus sem, malesuada eu luctus eget, suscipit sed turpis. Nam pellentesque felis vitae justo accumsan, sed semper nisi sollicitudin...</p>
+                        </div>
+                    
+                    </div>
+                    
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+                   
+                    </div>
+            
+            </section>
+            
+             <hr class="clear-fix w-100">
+               <!--education-->
+            <section class="education  py-5" id="education">
+                <div class="container text-center text-md-left">
+
+                    <div class="row mt-5">
+<!-- Grid column -->
+                        <div  class="col-md-4 mx-auto d-flex justify-content-center align-items-center">
+                            <h2 class="font-weight-bold text-capitalize mt-3">Education</h2>
+
+                        </div>
+
+                        <!-- Grid column -->
+                        <div class="col-md-8 mx-auto">
+
+                            <!-- Content -->
+
+                            
+
+<div class="container mt-5 mb-5">
+	<div class="row">
+		<div class="col-md-12 ">
+			
+			<ul class="timeline">
+                
+                
+				
+				<li>
+					
+                    <div class="row">
+                    <div class="col-md-5">
+                        <p class="font-small">{{ a_year }}-2020<br>
+                       <span class="font-bold">{{ school }}</span></p>
+                        <p class="font-small">{{ degree }}
+                       <br>{{ location }}</p>
+                    </div>
+                    <div class="col-md-7">
+        
+					<p>{{ a_details }}...</p>
+                        </div>
+                    
+                    </div>
+                    
+				</li>
+				<li>
+					
+                   
+                    <div class="row">
+                    <div class="col-md-5">
+                        <p class="font-small">2008-2014<br>
+                       <span class="font-bold">UNDSS</span></p>
+                        <p class="font-small">W.A.S.S.C.E
+                       <br>Aba,Abia State,Nigeria</p>
+                    </div>
+                    <div class="col-md-7">
+        
+					<p>Curabitur purus sem, malesuada eu luctus eget, suscipit sed turpis. Nam pellentesque felis vitae justo accumsan, sed semper nisi sollicitudin...</p>
+                        </div>
+                    
+                    </div>
+                    
+				</li>
+               
+             
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+                   
+                    </div>
+            
+            </section>
+            
+ <hr class="clear-fix w-100">
+            
+            
+                <!--profiles-->
+            <section class="profiles  py-5" id="profiles">
+                <div class="container text-center text-md-left">
+
+                    <div class="row mt-5">
+<!-- Grid column -->
+                        <div class="col-md-4 mx-auto d-flex justify-content-center align-items-center">
+                            <h2 class="font-weight-bold text-capitalize mt-3">profiles</h2>
+
+                        </div>
+
+                        <!-- Grid column -->
+                        <div class="col-md-8 mx-auto">
+                           
+                         <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3">
+                             
+                              
+            <div class=" col d-flex flex-row mb-4">
+                <i class="fab fa-github"></i>
+               <a> <div class="pl-3 d-flex flex-column
+                            justify-content-between"> <span><h6 class="lead">Github</h6></span>
+                    <span class="font-small">{{ instagram }}}</span></div></a>
+
+            </div>
+                             
+                             
+                            
+            <div class=" col d-flex flex-row mb-4">
+                <i class="fab fa-bitbucket"></i>
+               <a> <div class="pl-3 d-flex flex-column
+                            justify-content-between"> <span><h6 class="lead">Twitter</h6></span>
+                    <span class="font-small">{{ twitter }}</span></div></a>
+
+            </div>
+                              
+            <div class=" col d-flex flex-row">
+                <i class="fab fa-stack-overflow"></i>
+               <a> <div class="pl-3 d-flex flex-column
+                            justify-content-between"> <span><h6 class="lead">Facebook</h6></span>
+                    <span class="font-small">{{ facebook }}</span></div></a>
+
+            </div>
+                           
+            <div class=" col d-flex flex-row">
+                <i class="fab fa-quora"></i>
+               <a> <div class="pl-3 d-flex flex-column
+                            justify-content-between"> <span><h6 class="lead">Linkedin</h6></span>
+                    <span class="font-small">{{ linkedin }}</span></div></a>
+
+            </div>
+
+                                 
+
+                           
+
+                    </div>
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+                   
+                    </div>
+            
+            </section>
+            
+
+            
+             <hr class="clear-fix w-100">
+          
+            
+            
+            
+            
+                <!--freelance projects-->
+            <section class="freelance  py-5" id="freelance">
+                <div class="container text-center text-md-left">
+
+                    <div class="row mt-5">
+                        <!-- Grid column -->
+                        <div class="col-md-4 mx-auto d-flex justify-content-center align-items-center">
+                            <h2 class="font-weight-bold text-capitalize mt-3">Freelance Projects</h2>
+
+                        </div>
+                        <!-- Grid column -->
+                        <div class="col-md-8 mx-auto">
+
+                            <!-- Content -->
+                            
+                            <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3">
+                            
+                            
+                         <figure class="col-md-4">
+                                <a href="https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20(59).jpg" data-size="1600x1067">
+                                    <img src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(59).jpg" class="img-fluid z-depth-1">
+                                </a>
+                            </figure>
+                                 <figure class="col-md-4">
+                                <a href="https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20(59).jpg" data-size="1600x1067">
+                                    <img src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(59).jpg" class="img-fluid z-depth-1">
+                                </a>
+                            </figure>
+                                 <figure class="col-md-4">
+                                <a href="https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20(59).jpg" data-size="1600x1067">
+                                    <img src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(59).jpg" class="img-fluid z-depth-1">
+                                </a>
+                            </figure>
+                                
+                                 <figure class="col-md-4">
+                                <a href="https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20(59).jpg" data-size="1600x1067">
+                                    <img src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(59).jpg" class="img-fluid z-depth-1">
+                                </a>
+                            </figure>
+                                
+                                 <figure class="col-md-4">
+                                <a href="https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20(59).jpg" data-size="1600x1067">
+                                    <img src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(59).jpg" class="img-fluid z-depth-1">
+                                </a>
+                            </figure>
+                                
+                                 <figure class="col-md-4">
+                                <a href="https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20(59).jpg" data-size="1600x1067">
+                                    <img src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(59).jpg" class="img-fluid z-depth-1">
+                                </a>
+                            </figure>
+                                 <figure class="col-md-4">
+                                <a href="https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20(59).jpg" data-size="1600x1067">
+                                    <img src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(59).jpg" class="img-fluid z-depth-1">
+                                </a>
+                            </figure>
+                                
+                                 <figure class="col-md-4">
+                                <a href="https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20(59).jpg" data-size="1600x1067">
+                                    <img src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(59).jpg" class="img-fluid z-depth-1">
+                                </a>
+                            </figure>
+                                
+                                 <figure class="col-md-4">
+                                <a href="https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20(59).jpg" data-size="1600x1067">
+                                    <img src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(59).jpg" class="img-fluid z-depth-1">
+                                </a>
+                            </figure>
+                                
+                                
+                            
+                            
+                            
+                            
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4"></div>
+
+
+
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+
+                    </div>
+                    </section>
+
+ <hr class="clear-fix w-100">
+                    <section class="footer  py-5" id="footer">
+                        <div class="container mx-auto text-md-left">
+
+                            <div class="row mt-5">
+                                <!-- Grid column -->
+                                <div class="col-md-12">
+                                    <!-- Copyright -->
+                                    <div class=" col-md-12 footer-copyright  py-3">© 2020 Copyright:
+                                        {{ display_name }}<a href="#"> uzu solutions</a>
+                                    </div>
+                                    <!-- Copyright -->
+                                </div>
+
+
+                                <!-- Grid row -->
+                            </div>
+
+                        </div>
+                    </section>
+
+
+
+                    </main>
+    
+    
+    
+    <!-- Footer -->
+
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+       <div class="footer-menu fixed-bottom  pt-2 d-flex d-block d-sm-none d-lg-none">
+            <div class="row text-center mx-auto">
+            <div class="col-xs-3 pr-3">
+                <a>
+                <i class="fa fa-home active"></i>
+                <p>Home</p>
+                </a>
+                
+            </div>
+             <div class="col-xs-3 pr-3">
+                <i class="fa fa-home"></i>
+                <p>projects</p>
+            </div>
+                 <div class="col-xs-3 pr-3">
+                <i class="fa fa-home"></i>
+                <p>How it works</p>
+            </div>
+                 <div class="col-xs-3 pr-3">
+                <i class="fa fa-user"></i>
+                <p>Sign in</p>
+            </div>
+            </div>
+        
+        </div>
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+ 
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js'}}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/popper.min.js'}}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js'}}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/mdb.min.js'}}"></script>
+  <!--waypoint lib-->
+  <script type="text/javascript" src="{{ url_for('static', filename='lib/jquery.waypoints.min.js'}}"></script>
+
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/pPortfolio.js'}}"></script>
+
+</body>
+</html>

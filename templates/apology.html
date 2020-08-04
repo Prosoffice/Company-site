@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Uzu solutions
+{% endblock %}
+
+{% block main %}
+    <div class="text-center justify-content-center">
+        <img alt="{{ top }}" height="550px" width="500px" class="border img-responsive" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png" title="{{ top }}">
+    </div>
+{% endblock %}

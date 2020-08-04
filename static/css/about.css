@@ -1,0 +1,38 @@
+
+/*Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px){
+
+  
+ 
+  
+  .card{
+  background: #FFFFFF;
+  
+  border-radius: 20px !important;
+  }
+
+  .card img{
+    border-radius: 10px !important;
+  }
+  
+  .card h4{
+    font-weight: 700;
+  }
+}
+
+
+
+
+
+
+
+/*Small devices (tablets, 768px and up) */
+@media (max-width: 992px){
+  /**.view2{
+    margin-top: 0;
+    background-color: whitesmoke;
+  }
+**/
+    
+ 
+}

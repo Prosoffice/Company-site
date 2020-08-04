@@ -1,0 +1,1402 @@
+<!doctype html>
+{% import "bootstrap/wtf.html" as wtf %}
+<html lang="en">
+  <head>
+     <meta name="theme-color" content="#FED706">
+       <meta name="ms-appliction-navbutton-color" content="#FED706">
+       <meta name="apple-mobile-wep-app-status-bar-style" content="#FED706">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="icon"  href="{{ url_for('static', filename='img/corp.png')}}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}" type="text/css">
+
+    <title>Uzu solutions</title>
+  </head>
+
+  <body>
+    <!--NAVBAR START)-->
+    <nav class="navbar navbar-expand-md navbar-light bg-light shadow  bg-white rounded  fixed-top py-1 ">
+      <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='img/corp.png')}}" width="30px" height="30px"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto text-capitalizee">
+          <li class="nav-item">
+            <a class="nav-link  activeItem" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/projects">Projects</a>
+          </li>
+
+            <li class="nav-item">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+          <li class="nav-item">
+            <a class="nav-link  bg-yellow" href="#"  data-toggle="modal" data-target="#modalRegisterForm">chat with us</a>
+
+          </li>
+        </ul>
+      </div>
+    </nav>
+<!--NAVBAR END-->
+
+
+
+
+    <!--JUMBOTRON-->
+
+    <section class="big-head" id="topSection">
+
+      <div class="container">
+        <div class="row pb-md-4 mb-md-4">
+          <div class=" mt-5 pt-md-5 mb-md-5 col-12 px-1">
+            <div class=" mt-5 pt-3 pt-md-5 mb-md-4 jumbotron jumbotron-fluid ">
+              <div class="text-center py-5 my-auto">
+
+                <h1 class="h1-responsive pt-2 mt-4 text-center jtext"><strong>UZU  SOLUTIONS</strong></h1>
+                  <div class="steady">
+
+                     <p class="lead pt-3"> <span class="demo "></span></p>
+
+
+                  </div>
+               <div class="">
+                  <a class="btn btn-outline-dark arrow text-uppercase" href="projects.html" role="button"><span>&#8592;</span>View Recent Projects</a></div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+      <!-- END JUMBOTRON-->
+
+
+
+
+       <!--BEGINING OF NEXT VIEW AFTER JUMBOTRON COMPONENT (DESKTOP) -->
+    <main id=""  >
+
+      <!--ABOUT US TITLE-->
+      <div class="container-fluid mt-5 pt-4">
+
+          <h2 class="text-center pt-md-4 text-capitalize ">About us</h2>
+          <hr class="dividing">
+      </div>
+
+
+      <!--ABOUT US CONTENT-->
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-7 my-1 py-4 px-4 pl-md-2">
+            <img src="{{ url_for('static', filename='img/teamwork1.svg')}}"  class="img-fluid img-responsive text-center" style="width:100%; height:auto;">
+          </div>
+          <div class="col-md-5 my-md-5 my-1 py-md-5 py-1">
+              <div class="d-flex flex-column">
+                 <p class="">We provide a world-class platform to over 180 million users in 190 countries, empowering everyone to express themselves and build their online presence. Whether you’re an entrepreneur, designer, developer, musician, photographer or restaurant owner, you’ll find specialized features to create a professional website and manage your business.</p>
+
+         <div class=" text-center text-md-left py-4"><a type="submit" class="btn bg-yellow mb-5  text-uppercase " href="/about">meet the team</a></div>
+              </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+         <hr class=" clear-fix w-100">
+
+
+
+
+
+
+            <!-- our services Content-->
+     <section class="services py-2" id="services">
+             <!--our services-->
+      <div class="container-fluid mt-5 pb-5 mb-1">
+
+          <h2 class="text-center pt-1 text-capitalize">our services</h2>
+       <hr class="dividing">
+      </div>
+                <div class="container pb-5">
+
+
+
+                   <div class="row ">
+
+                        <div class="col-md-4 mt-4">
+                            <div class="card card-chart">
+
+                                <div class="card-body">
+                                    <div class=" d-flex justify-content-center">
+                                    <img class="card-img-top rounded img-fluid" src="{{ url_for('static', filename='img/undraw_web_developer_p3e5.svg')}}" style="max-width: 100%; height: auto;" >
+                                    </div>
+                                    <hr class="clear-fix w-100">
+                                    <h4 class="card-title pt-3 text-center">Web App development</h4>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mt-4">
+                             <div class="card card-chart">
+
+                                <div class="card-body">
+                                    <div class=" d-flex justify-content-center">
+                                    <img class="card-img-top rounded img-fluid" src="{{ url_for('static', filename='img/undraw_mobile_apps_spmp.svg')}}" style="max-width: 92%; height: auto;" >
+                                    </div>
+                                    <hr class="clear-fix w-100">
+                                    <h4 class="card-title pt-3 text-center">Mobile App development</h4>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4 mt-4">
+                             <div class="card card-chart">
+
+                                <div class="card-body">
+                                    <div class=" d-flex justify-content-center">
+                                    <img class="card-img-top rounded img-fluid " src="{{ url_for('static', filename='img/undraw_nakamoto_2iv6.svg')}}" style="width: 92%; height: auto;" >
+                                    </div>
+                                    <hr class="clear-fix w-100">
+                                    <h4 class="card-title pt-3 text-center">Blockchain DApps</h4>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                   <div class="row mt-2">
+
+                        <div class="col-md-4 mt-4">
+                            <div class="card card-chart">
+
+                                <div class="card-body">
+                                    <div class=" d-flex justify-content-center ">
+                                    <img class="card-img-top rounded img-fluid" src="{{ url_for('static', filename='img/tech-sup.svg')}}" style="max-width: 100%; height: 216px;" >
+                                    </div>
+                                    <hr class="clear-fix w-100">
+                                    <h4 class="card-title pt-3 text-center">Tech support</h4>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mt-4">
+                             <div class="card card-chart">
+
+                                <div class="card-body">
+                                    <div class=" d-flex justify-content-center">
+                                    <img class="card-img-top rounded img-fluid" src="{{ url_for('static', filename='img/Untitled.svg')}}" style="max-width: 100%; height:218px;" >
+                                    </div>
+                                    <hr class="clear-fix w-100">
+                                    <h4 class="card-title pt-3 text-center">Digital Marketing</h4>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                         <div class="col-md-4 mt-4 ">
+                             <div class="card">
+
+                                <div class="card-body">
+                                    <div class=" d-flex justify-content-center py-3">
+                                    <img class="card-img-top rounded img-fluid" src="{{ url_for('static', filename='img/undraw_video_files_fu10_1.svg')}}" style="max-width: 100%; height: auto;" >
+                                    </div>
+                                    <hr class="clear-fix w-100">
+                                    <h4 class="card-title pt-3 text-center">Graphics ,Video Animation</h4>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+ <hr class="clear-fix w-100">
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--our projects content-->
+
+            <section class="our-projects py-2" id="our-projects">
+
+      <!--our projects TITLE-->
+      <div class="container-fluid mt-5 pb-5 mb-1">
+          <h2 class="text-center pt-1 text-capitalize">our products</h2>
+       <hr class="dividing">
+      </div>
+                <div class="container pb-3">
+
+          <div class="row mt-4">
+
+                  <!--grid column-->
+          <div class="col-md-4" >
+
+              <div class="rounded pb-5">
+                <div class="card" >
+                  <img src="{{ url_for('static', filename='img/ctrlxhub.jpg')}}" class="card-img-top rounded" alt="..." style="width: 100%; height: auto;">
+                  <div class="card-body">
+                    <h4 class="card-title text-center">CTRL-X Hub</h4>
+                    <p class="card-text">This is a coworking space located in FUTO owerri imo state,It also serves as our working offices where you can fin us plugging away</p>
+                  </div>
+
+                     <div class="card-footer ">
+                         <div class=" d-flex justify-content-center"><a class=" mx-2" href="#">visit us </a></div>
+                     </div>
+                     </div>
+             </div>
+          </div>
+
+            <!--grid column end-->
+
+
+
+                         <!--grid column-->
+          <div class="col-md-4" >
+
+              <div class="rounded pb-5">
+                <div class="card">
+                  <img src="{{ url_for('static', filename='img/undraw_under_construction_46pa.png')}}" class="card-img-top rounded" alt="..."  style="width: 100%; height:174px;">
+                  <div class="card-body">
+                    <h4 class="card-title text-capitalize text-center">Stock dey(ecommerce)</h4>
+                    <p class="card-text">payment gateway (crypto/fiat), manage inventory  and tracking(get alerts when  out of stock),accounting system all in one. </p>
+                  </div>
+               <div class="card-footer ">
+                         <div class=" d-flex justify-content-center"><a class=" mx-2" href="#">coming soon </a></div>
+                     </div>
+
+                     </div>
+
+             </div>
+          </div>
+
+            <!--grid column end-->
+
+
+
+             <!--grid column-->
+          <div class="col-md-4" >
+
+              <div class="rounded pb-5">
+                <div class="card" >
+                  <img src="{{ url_for('static', filename='img/undraw_under_construction_46pa.png')}}" class="card-img-top rounded" alt="..."  style="width: 100%; height:174px;">
+                  <div class="card-body">
+                    <h4 class="card-title text-center text-capitalize">tiki</h4>
+                    <p class="card-text">This is a coworking space located in FUTO owerri imo state,It also serves as our working offices where you can fin us plugging away</p>
+                  </div>
+               <div class="card-footer ">
+                         <div class=" d-flex justify-content-center"><a class=" mx-2" href="#">coming soon </a></div>
+                     </div>
+
+                     </div>
+
+             </div>
+          </div>
+
+            <!--grid column end-->
+
+
+
+                    </div>
+                </div>
+
+            </section>
+
+
+
+
+
+
+
+
+          <!--our process TITLE-->
+      <div class="container-fluid mt-5 pb-5 mb-1">
+          <h2 class="text-center pt-1 text-capitalize">our work process</h2>
+       <hr class="dividing">
+      </div>
+
+
+    <!--our process content-->
+
+<div class="container mt-2 mb-5 mx-auto  d-flex justify-content-center">
+
+
+
+			<ul class="timeline  mx-auto">
+
+
+
+				<li>
+					<div class="row my-auto py-3">
+
+                    <div class="col-md-8 mx-auto">
+                        <h4 class="">#1
+                       <span class="font-bold">Consultation and project assessment</span></h4>
+                        <p class="font-small">Our team (Product researchers and developers) liase with our clients to better understand the product specification and also to ascertain the feasibility of the project with regards to time and client budget.
+                       <br></p>
+
+                        </div>
+                    </div>
+
+				</li>
+				<li>
+					<div class="row my-auto py-3">
+
+
+                    <div class="col-md-8 mx-auto">
+                        <h4 class="">#2
+                       <span class="font-bold">Product Development Roadmap</span></h4>
+                        <p class="font-small">Once our team comes to an agreement with the client,a product dvelopment roadmap with set achievable goals and milestones are drafted.
+                       <br></p>
+                    </div>
+
+                    </div>
+
+				</li>
+                <li>
+
+                     <div class="row my-auto py-3">
+                    <div class="col-md-8 mx-auto">
+                        <h4 class="">#3
+                       <span class="font-bold">Product Research</span></h4>
+                        <p class="font-small">Our product team witht the help of our AI project takes up research on the project wth its current laid out specification to understand user behaviour and current trends.Enabling the development team to effectively map out architectures and product functionality.
+                       <br></p>
+                         </div>
+
+                    </div>
+				</li>
+
+
+                <li>
+
+                 <div class="row my-auto py-3">
+                     <div class="col-md-8 mx-auto">
+                        <h4 class="">#4
+                       <span class="font-bold">Product Development </span></h4>
+                        <p class="font-small">Our product and ui designers and front-end  developers work together to create amazing user interfaces that will fit withe the core of the project,
+                       <br></p>
+                    </div>
+                    </div>
+
+
+
+				</li>
+
+                 <li>
+					<div class="row my-auto py-3">
+
+                     <div class="col-md-8 mx-auto">
+                        <h4 class="">#5
+                       <span class="font-bold">Product Testing </span></h4>
+                        <p class="font-small">Multiple unit test are carried out to test various features and functionalities.
+                       <br></p>
+                    </div>
+                        </div>
+
+
+
+
+				</li>
+                <li>
+					<div class="row my-auto py-3">
+
+                     <div class="col-md-8 mx-auto">
+                        <h4 class="h2-responsive">#6
+                       <span class="font-bold">More Product Testing </span></h4>
+                        <p class="font-small">Multiple unit test are carried out to test various features and functionalities.
+                       <br></p>
+                    </div>
+
+                    </div>
+
+
+				</li>
+                <li>
+
+                   <div class="row my-auto py-3">
+                     <div class="col-md-8 mx-auto">
+                        <h4 class="">#7
+                       <span class="font-bold">Product Deployment </span></h4>
+                        <p class="">Multiple unit test are carried out to test various features and functionalities.
+                       <br></p>
+                    </div>
+
+                    </div>
+
+
+				</li>
+			</ul>
+		</div>
+
+
+       <hr class="clear-fix w-100">
+
+
+          <!--why us TITLE-->
+      <div class="container-fluid mt-5 pb-5 mb-1">
+          <h2 class="text-center pt-1 text-capitalize">Why companies choose to work with us</h2>
+       <hr class="dividing">
+      </div>
+
+
+    <!--why us content-->
+
+
+
+
+            <!--why choose  us-->
+            <section class="why-choose-us py-2" id="why-choose-us">
+                <div class="container pb-3">
+
+
+          <div class="row px-auto align-items-center justify-content-center">
+
+
+        <!-- Card --><!-- Card -->
+          <div class="col-md-4  why-card why-card-up  my-3 ">
+<div class="card">
+          <!-- Background color -->
+          <div class="card-img-top why-card-up indigo lighten-1"><h5 class="text-center py-4 px-1">#1 We do our home work.</h5></div>
+
+          <!-- Avatar -->
+          <div class="why avatar mx-auto white">
+            <img src="{{ url_for('static', filename='img/scan.svg')}}" class="img-fluid"
+              alt="woman avatar">
+          </div>
+
+          <!-- Content -->
+          <div class="card-body py-1 ">
+
+            <p class="mb-0"> We don't just dive and start building, our  excellent developer team researches on the given product specs to discover trends,customer insight and behaviour
+            </p>
+          </div>
+    </div>
+
+        </div>
+        <!-- Card -->
+
+
+      <!-- Card -->
+          <div class="col-md-4  why-card why-card-up   my-3 ">
+<div class="card">
+          <!-- Background color -->
+          <div class="card-img-top why-card-up indigo lighten-1"> <h5 class="text-center py-4">#2 Modern UI/UX. </h5></div>
+
+          <!-- Avatar -->
+          <div class="why avatar mx-auto white">
+            <img src="{{ url_for('static', filename='img/design.svg')}}" class="img-fluid"
+              alt="woman avatar">
+          </div>
+
+          <!-- Content -->
+          <div class="card-body py-1 ">
+
+            <p class="mb-0 ">We focus on human behaviour. Our expert ui designers use data from the research and case studies to craft out product demos,that are  device responsive and design with good user experience.
+            </p>
+          </div>
+    </div>
+
+        </div>
+        <!-- Card -->
+
+
+              <!-- Card -->
+          <div class="col-md-4  why-card why-card-up  my-3 ">
+<div class="card go">
+          <!-- Background color -->
+          <div class="card-img-top why-card-up indigo lighten-1"> <h5 class="text-center py-4 px-1">#3 Robust and Modular Architecture. </h5></div>
+
+          <!-- Avatar -->
+          <div class="why avatar mx-auto white">
+            <img src="{{ url_for('static', filename='img/module_1.svg')}}" class="img-fluid"
+              alt="woman avatar">
+          </div>
+
+          <!-- Content -->
+          <div class="card-body py-2 my-3 ">
+
+            <p class="mb-0 py-4">Our developers create solutions  with appropriate stack,that allows for easy modifications and pivoting
+            </p>
+          </div>
+    </div>
+
+        </div>
+        <!-- Card -->
+
+
+
+
+        <!-- Card -->
+          <div class="col-md-4  why-card why-card-up   my-3 ">
+<div class="card">
+          <!-- Background color -->
+          <div class="card-img-top why-card-up indigo lighten-1"> <h5 class="text-center py-4">#4 We Deliver  excellent work.</h5></div>
+
+          <!-- Avatar -->
+          <div class="why avatar mx-auto white">
+            <img src="{{ url_for('static', filename='img/excellence.svg')}}" class="img-fluid"
+              alt="excellent-workr">
+          </div>
+
+          <!-- Content -->
+          <div class="card-body py-1 ">
+
+            <p class="mb-0 "> We strictly follow industry standards and guidelines to ensure that our products are top notch and safe for our clients whom have entrusted us with their businesses.
+            </p>
+          </div>
+    </div>
+
+        </div>
+        <!-- Card -->
+
+      <!-- Card -->
+          <div class="col-md-4  why-card why-card-up   my-3 ">
+<div class="card">
+          <!-- Background color -->
+          <div class="card-img-top why-card-up indigo lighten-1"> <h5 class="text-center py-4">#5 We deliver on Time. </h5></div>
+
+          <!-- Avatar -->
+          <div class="why avatar mx-auto white">
+            <img src="{{ url_for('static', filename='img/loading.svg')}}" class="img-fluid"
+              alt="woman avatar">
+          </div>
+
+          <!-- Content -->
+          <div class="card-body py-1 ">
+
+            <p class="mb-0 "> Our company culture focuses on the need for speed and efficiency,We make sure our clients projects are delivered as at when due,no unecessary delays.
+            </p>
+          </div>
+    </div>
+
+        </div>
+        <!-- Card -->
+
+    <!-- Card -->
+          <div class="col-md-4  why-card why-card-up   my-3 ">
+<div class="card">
+          <!-- Background color -->
+          <div class="card-img-top why-card-up indigo lighten-1">
+
+    <h5 class="text-center py-4">#6 Great Customer Support</h5>
+
+    </div>
+
+          <!-- Avatar -->
+          <div class="why avatar mx-auto white">
+            <img src="{{ url_for('static', filename='img/support.svg')}}" class=" img-fluid"
+              alt="woman avatar">
+          </div>
+
+          <!-- Content -->
+          <div class="card-body py-1 ">
+
+            <p class="mb-0 py-3 "> Great News! Our customer support is human and always available 24/7/365 to cater to any of your request and complaints.
+            </p>
+          </div>
+    </div>
+
+        </div>
+        <!-- Card -->
+
+
+
+
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+             <div class="d-flex justify-content-center">
+                 <a type="submit" class="btn bg-yellow text-center  text-uppercase" href="#" data-toggle="modal" data-target="#modalRegisterForm">get started</a>
+
+                    </div>
+                 <p class="text-center pt-">still not sure?</p>
+                </div>
+
+
+
+
+
+
+
+            </section>
+
+
+
+
+ <hr class=" clear-fix w-100">
+
+
+
+
+      <!--COMPANIES THAT TRUST US TITLE-->
+      <div class="companies container-fluid text-center pb-5">
+          <div class="container-fluid mt-5 pb-5 mb-4">
+          <h2 class="text-center pt-1 text-capitalize">Companies that trust us</h2>
+       <hr class="dividing">
+      </div>
+        <!--CAROUSEL FOR THE COMPANY LOGO`S-->
+        <div class="container">
+          <div class="row">
+
+    <!--Carousel Wrapper-->
+    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+
+
+      <!--Indicators-->
+      <ol class="carousel-indicators">
+        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+        <li data-target="#multi-item-example" data-slide-to="1"></li>
+        <li data-target="#multi-item-example" data-slide-to="2"></li>
+      </ol>
+      <!--/.Indicators-->
+
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+
+        <!--First slide-->
+        <div class="carousel-item active">
+
+          <div class="row">
+            <div class="col-3">
+
+                <img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/1.png')}}"
+                  alt="Card image cap" style="width: 93%; height: auto;">
+
+
+            </div>
+
+            <div class="col-3">
+
+                <img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/2.png')}}"
+                  alt="Card image cap">
+
+            </div>
+
+            <div class="col-3">
+
+                <img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/3.png')}}"
+                  alt="Card image cap">
+
+
+            </div>
+
+               <div class="col-3">
+
+                <img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/4.png')}}" style="width: 100%; height: auto;"
+                  alt="Card image cap">
+
+
+            </div>
+          </div>
+
+        </div>
+        <!--/.First slide-->
+
+        <!--Second slide-->
+        <div class="carousel-item">
+
+          <div class="row">
+            <div class="col-3">
+
+                <img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/2.png')}}"
+                  alt="Card image cap">
+
+
+            </div>
+
+            <div class="col-3">
+
+                <img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/4.png')}}"
+                  alt="Card image cap">
+
+
+            </div>
+
+            <div class="col-3">
+
+                <img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/3.png')}}"
+                  alt="Card image cap">
+
+
+            </div>
+
+
+               <div class="col-3">
+
+                <img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/1.png')}}"
+                  alt="Card image cap" style="width: 93%; height: auto;">
+
+
+            </div>
+          </div>
+
+        </div>
+        <!--/.Second slide-->
+
+        <!--Third slide-->
+        <div class="carousel-item">
+
+          <div class="row">
+            <div class="col-3">
+
+                <img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/3.png')}}"
+                  alt="Card image cap">
+
+
+            </div>
+
+            <div class="col-3">
+
+                <img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/4.png')}}"
+                  alt="Card image cap">
+
+
+            </div>
+
+
+               <div class=" col-3 ">
+
+                <img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/3.png')}}"
+                  alt="Card image cap">
+
+
+            </div>
+
+            <div class=" col-3 ">
+
+                <img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/2.png')}}"
+                  alt="Card image cap">
+
+
+            </div>
+          </div>
+
+        </div>
+        <!--/.Third slide-->
+
+      </div>
+      <!--/.Slides-->
+
+    </div>
+    <!--/.Carousel Wrapper-->
+
+          </div>
+        </div>
+      </div>
+
+
+         <hr class="clear-fix w-100">
+
+
+
+
+        <!--CLIENT TESTIMONIES-->
+        <div class="container-fluid mt-5 pb-5 mb-4">
+
+          <h2 class="text-center pt-1 text-capitalize">What our clients think</h2>
+       <hr class="dividing">
+      </div>
+
+      <!--CLIENT TESTIMONY CAROUSEL-->
+
+
+
+            <section class="testimonial py-2" id="testimonial">
+                <div class="container pb-3">
+
+
+
+
+
+
+                <div class="container mx-auto" id="car-wrap">
+    <div id="car" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="carousel-caption">
+                    <p>If Shai Reznik's TDD videos don't convince you to add automated testing your code, I don't know what will.This was the very best explanation of frameworks for brginners that I've ever seen. </p> <img src="https://i.imgur.com/lE89Aey.jpg">
+                    <div id="image-caption">Nick Doe</div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-caption">
+                    <p>If Shai Reznik's TDD videos don't convince you to add automated testing your code, I don't know what will.This was the very best explanation of frameworks for brginners that I've ever seen.</p> <img src="https://i.imgur.com/QptVdsp.jpg" class="img-fluid">
+                    <div id="image-caption">Cromption Greves</div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-caption">
+                    <p>If Shai Reznik's TDD videos don't convince you to add automated testing your code, I don't know what will.This was the very best explanation of frameworks for brginners that I've ever seen.</p> <img src="https://i.imgur.com/jQWThIn.jpg" class="img-fluid">
+                    <div id="image-caption">Harry Mon</div>
+                </div>
+            </div>
+        </div> <a class="carousel-control-prev" href="#car" data-slide="prev"> <i class='fas fa-arrow-left icon-bg'></i> </a> <a class="carousel-control-next" href="#car" data-slide="next"> <i class='fas fa-arrow-right icon-bg'></i> </a>
+    </div>
+</div>
+
+
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+      <!--FOOTER-->
+      <!--iv class="container-fluid desktop foot">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h2 class=" mt-5 ">UZU SOLUTIONS</h2>
+          </div>
+        </div>
+
+        <!--BINARY IMAGE THAT LOOKS LIKE LOCATION-->
+        <!--div class="container">
+          <div class="row">
+            <div class="col-12 text-center">
+              <img src="online.png" class="" width="120px">
+              <p style="color: rgba(254, 215, 6, 0.65);" class=" "> We live online</p>
+            </div>
+          </div>
+        </div>
+
+        <!--CONNECT WITH US-->
+        <!--div class="row">
+          <div class="container ">
+            <div class="col-6">
+              <small><p><span class='connect' style="color: black;">connect with us on</span> </p></small>
+            </div>
+            <div class=" container">
+              <a href="#" class="fa fa-facebook"></a>
+              <a href="#" class="fa fa-twitter"></a>
+              <a href="#" class="fa fa-linkedin"></a>
+              <a href="#" class="fa fa-skype"></a>
+              <a href="#" class="fa fa-instagram"></a>
+            </div>
+          </div>
+
+
+          <!--LAST TWO PARAGRAPH-->
+          <!--div class="container">
+            <div class="row">
+              <small><h3 class='text-center mt-3 container' style="color: rgba(254, 215, 6, 0.79);">Still curious on how to meet us? Visit CTRL-X hub, Owerri, Imo state Nigeria c 2020 <strong>UZU SOLUTIONS</strong> Ltd. All Rights Reserved. Reg. #RC yuiyyt</h3></small>
+            </div>
+
+            <div>
+              <small><p class='text-center mt-3 u' style="color: rgba(254, 215, 6, 0.79);">Find us on the Map. Privacy policy</p></small>
+            </div>
+          </div>
+        </div>
+      </div>-->
+    </main> <!--END FOR DESKTOP HOME PAGE-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+<footer class=" pt-4 pb-5 mb-3" id="contact">
+
+
+
+            <section class="talk-to-us py-5" id="talk-to-us">
+                <div class="container">
+
+                    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+                 <h2 class="text-center mb-3" > Talk to us</h2>
+                     <hr class="dividing">
+                     <p class="lead text-center">Let us know what we can do for you,We are always online 24/7/365  <span class="reprate"><i class="text-center">minimum reply rate 5mins</i> </span></p>.
+                    <div class="row">
+                    <div class="col-md-6 mt-md-5">
+
+                    <img class="img-fluid " src="{{ url_for('static', filename='img/Telecommuting-rafiki.svg')}}">
+                    </div>
+                        <div class="col-md-5 mx-auto my-auto ">
+                        <div class="d-flex flex-column align-items-center">
+
+
+
+                    <div class="mt-4 pt-4">
+                      <form action="/" method="post" role="form">
+                          {{ form.hidden_tag() }}
+                        <div class="row">
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.name) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                            <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.job_title) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                             <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.business_name) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.email) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.subject) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.message) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 text-center mb-3">
+
+                          </div>
+                          <div class="col-md-12 text-center">
+                            <button type="submit" class="button button-a button-big button-rounded btn-warning">Send Message</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                           <div class="pt-4"> <p class="text-center">or</p>
+
+                           <ul class="list-unstyled list-inline text-center">
+                               <li class="list-inline-item">
+                                  <p>Talk to a human <strong>ASAP</strong></p>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-fb mx-1">
+                                       <i class="fas fa-phone-alt"></i>
+                                   </a>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-tw mx-1">
+                                       <i class="fab fa-whatsapp"></i>
+                                   </a>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-gplus mx-1">
+                                       <i class="fab fa-telegram-plane"></i>
+                                   </a>
+                               </li>
+
+
+                           </ul>
+                       </div>
+                <!-- <a  class="btn  text-center  text-uppercase bg-yellow" href="" data-toggle="modal" data-target="#modalRegisterForm">start E-consultation</a>-->
+
+
+
+
+                           <!-- Social buttons -->
+
+
+                        </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+     <hr class="w-100 footer-divide">
+
+
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+    <div class=""></div>
+
+        <!--start footer section-->
+        <section class="mt-5 mx-auto">
+             <div class="container  text-center w-50">
+                 <img class="img-fluid" src="{{ url_for('static', filename='img/corp.png')}}">
+                <h2 class="pt-3 pb-5 mb-5 text-capitalize">uzu solutions</h2>
+            </div>
+
+        </section>
+    <!-- Grid row -->
+    <div class="row mt-3 ">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mx-auto">
+
+        <h5 class="">We live online.</h5>
+
+<ul class="list-unstyled mt-0 pt-0 ">
+       <li class="pt-0">
+       <p class="pb-0 mb-1">Connect with us</p>
+    </li>
+ <!-- Social buttons -->
+
+    <li class="list-inline-item pt-0">
+      <a class="btn-floating btn-fb mx-1">
+        <i class="fab fa-facebook-f"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-tw mx-1">
+        <i class="fab fa-twitter"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-gplus mx-1">
+        <i class="fab fa-google-plus-g"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-li mx-1">
+        <i class="fab fa-linkedin-in"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-dribbble mx-1">
+        <i class="fab fa-dribbble"> </i>
+      </a>
+    </li>
+  </ul>
+      </div>
+
+
+      <!-- Grid column -->
+
+      <hr class="dividing">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mx-auto">
+
+        <!-- Links -->
+
+      <h5 class=" text-capitalize mb-2">Head Office</h5>
+      <p><a class="" href="#">@CTRL-X hub,</a><br>
+        FUTO,Owerri,Imo state,Nigeria.</p>
+
+
+
+        </div>
+        <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+       <!-- Grid column -->
+      <div class="col-md-4 mx-auto">
+
+        <!-- Links -->
+
+          <h5 class=" text-capitalize">Opening hours</h5>
+         <ul class="list-unstyled"><li><p>Mon-Fri 09:00 - 18:00 (GMT+1)<br>Mon-Fri 09:00 - 18:00 (GMT+1)</p></li></ul>
+
+
+
+        </div>
+        <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+
+
+  <hr class="w-100 footer-divide">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="#"> uzu solutions</a>
+  </div>
+  <!-- Copyright -->
+
+
+</footer>
+<!-- Footer -->
+      <div id="btnTop" class="fixed-action-btn smooth-scroll " style="bottom: 45px; right: 24px;">
+  <a href="#topSection" class="btn-floating btn-large  bg-yellow">
+    <i class="fa fa-arrow-up"></i>
+  </a>
+</div>
+
+      <!--mobile footer-->
+    <div class="footer-mob  d-block d-sm-none d-lg-none d-md-none">
+
+
+
+    <nav class="nav bottom fixed-bottom ">
+        <a href="/" class="nav__link  active py-1">
+        <i class="material-icons nav__icon" >home</i>
+        <span class="nav__icon">Home</span>
+    </a>
+
+        <a href="/about" class="nav__link  py-1">
+        <i class="material-icons nav__icon" >group</i>
+        <span class="nav__icon">About us</span>
+    </a>
+        <a href="/projects" class="nav__link py-1">
+        <i class="material-icons nav__icon" >folder</i>
+        <span class="nav__icon">Projects</span>
+    </a>
+        <a href="talk.html" class="nav__link py-1" data-toggle="modal" data-target="#modalRegisterForm">
+        <i class="material-icons nav__icon" >message</i>
+        <span class="nav__icon">Chat with us</span>
+    </a>
+
+    </nav>
+
+
+
+
+
+    </div>
+
+
+
+
+<!--modal-->
+
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+          <div class="modal-header text-center ">
+
+
+
+
+                     <hr class="dividing">
+
+        <!--h4 class="modal-title w-100 font-weight-bold">Consultation</h4-->
+        <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <section class="mt-3 mx-auto">
+             <div class="container  text-center w-100">
+                 <img class="img-fluid" src="{{ url_for('static', filename='img/corp.png')}}" style="min-width:40px; max-height: 40px; ">
+                <h6 class="pt-2 text-capitalize ">uzu solutions</h6>
+            </div>
+
+        </section>
+
+      <div class="modal-body mx-1">
+          <h2 class="text-center mb-3 w-100 mx-auto"> Talk to us</h2>
+
+                        <div class="col-md-12 mx-auto my-auto ">
+                        <div class="d-flex flex-column align-items-center">
+
+
+
+
+
+                    <div class="mt-4 pt-4">
+                      <form action="/" method="post" role="form">
+                          {{ form.hidden_tag() }}
+                        <div class="row">
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.name) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                            <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.job_title) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                             <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.business_name) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.email) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.subject) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.message) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 text-center mb-3">
+
+                          </div>
+                          <div class="col-md-12 text-center">
+                            <button type="submit" class="button button-a button-big button-rounded btn-warning">Send Message</button>
+                          </div>
+                        </div>
+                      </form>
+
+                    </div>
+                           <div class="pt-4"> <p class="text-center">or</p>
+
+                           <ul class="list-unstyled list-inline text-center">
+                               <li class="list-inline-md-item">
+                                  <p>Talk to a human <strong>ASAP</strong></p>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-fb mx-1">
+                                       <i class="fas fa-phone-alt"></i>
+                                   </a>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-tw mx-1">
+                                       <i class="fab fa-whatsapp"></i>
+                                   </a>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-gplus mx-1">
+                                       <i class="fab fa-telegram-plane"></i>
+                                   </a>
+                               </li>
+
+
+                           </ul>
+                       </div>
+                <!-- <a  class="btn  text-center  text-uppercase bg-yellow" href="" data-toggle="modal" data-target="#modalRegisterForm">start E-consultation</a>-->
+
+
+
+
+                           <!-- Social buttons -->
+
+
+                        </div>
+
+
+
+                        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+    <script>
+
+
+          $(function() {
+
+      var $btn = $('#btnTop');
+      var $home = $('#topSection');
+      var startpoint = $home.scrollTop() + $home.height();
+
+      $(window).on('scroll', function() {
+        if($(window).scrollTop() > startpoint) {
+          $btn.show();
+        } else {
+          $btn.hide();
+        }
+      });
+    });
+
+
+
+      </script>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='php-email-form/validate.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/typed.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/index.js')}}"></script>
+  </body>
+</html>

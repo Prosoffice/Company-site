@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>uzu solutions</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mdb.min.css')}}">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style3.css')}}">
+
+
+    <style>
+        #plx {
+            {% if staff_id == 1 %}
+                background-image: url("{{ url_for('static', filename='img/me_1.png')}}");
+                {% elif staff_id == 2 %}
+                background-image: url("{{ url_for('static', filename='img/dino1_1.png')}}");
+                {% elif staff_id == 3 %}
+                background-image: url("{{ url_for('static', filename='img/wisdom_1.png')}}");
+                {% elif staff_id == 4 %}
+                background-image: url("{{ url_for('static', filename='img/uche_2.png')}}");
+                {% elif staff_id == 5 %}
+                background-image: url("{{ url_for('static', filename='img/focus2.png')}}");
+                {% elif staff_id == 6 %}
+                background-image: url("{{ url_for('static', filename='img/collins_2.png')}}");
+                {% else %}
+                background-image: url("{{ url_for('static', filename='img/pascal_1.png')}}");
+            {% endif %}
+            height: 560px;
+            margin-bottom: 0px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .card{
+            height:245px !important;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target="#navbar-example2" id="y">
+
+
+
+    <section id="plx" class="">
+
+
+
+
+
+
+        <!-- home -->
+
+        <div class="container text-center h-100">
+
+            <!-- Grid row -->
+            <div class="row mt-md-5 mb-md-5">
+
+                <!-- Grid column -->
+                <div class="col-md-8 mx-auto mt-4 text-center mb-md-5  ">
+
+                    <!-- Content -->
+                    <h1 class=" h1-responsive font-weight-bold text-capitalize   mt-5  pt-5 mb-4">Welcome to my World</h1>
+
+                    <h2 class="text-capitalize mt-4 mb-2  pb-md-2 pt-md-4"> I am <span class="yellow">{{port.basic.display_name}}</span></h2>
+
+                    <h4 class="pt-2">{{port.basic.role}}</h4>
+
+                </div>
+
+
+            </div>
+            <!-- Grid column -->
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <!-- Grid column -->
+
+    </section>
+
+
+    <!--Main Layout-->
+    <main class="">
+
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top scrolling-navbar">
+            <div class="container">
+                <!-- Navbar brand -->
+
+                <!-- Collapse button -->
+                <!--button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-example" aria-controls="basicExampleNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button-->
+
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse d-flex justify-content-center  " id="navbar-example2">
+
+                    <!-- Links -->
+                    <ul class="nav nav-pills" role="tablist">
+                        <li class="nav-item active">
+                            <a class="nav-link my-1" href="#plx">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link my-1" href="#about-me">About me</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link my-1" href="#skill">skills</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link my-1" href="#profiles">profiles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link my-1" href="#freelance">Projects</a>
+                        </li>
+
+
+
+                    </ul>
+
+                    <!-- Links -->
+                </div>
+
+                <!-- Collapsible content -->
+            </div>
+
+        </nav>
+
+        <!--about me-->
+            <section class="about-me  py-md-4 py-2" id="about-me">
+                <div class="container text-center text-md-left">
+
+                    <div class="row mt-5">
+<!-- Grid column -->
+                        <div  class="col-md-4 mx-auto d-flex flex-column justify-content-center align-items-center">
+                            {% if staff_id == 1 %}
+                            <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='img/me_1.png') }}" style="width: 80%; height: auto;">
+                            {% elif staff_id == 2 %}
+                            <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='img/dino1_1.png') }}" style="width: 80%; height: 255px;">
+                            {% elif staff_id == 3 %}
+                            <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='img/wisdom_1.png') }}" style="width: 80%; height: 255px;">
+                            {% elif staff_id == 4 %}
+                            <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='img/uche_2.png') }}" style="width: 80%; height: 255px;">
+                            {% elif staff_id == 5 %}
+                            <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='img/focus2.png') }}" style="width: 80%; height: 255px;">
+                            {% elif staff_id == 6 %}
+                            <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='img/collins_2.png') }}" style="width: 80%; height: 255px;">
+                            {% else %}
+                            <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='img/pascal_1.png') }}" style="width: 80%; height: 255px;">
+                            {% endif %}
+                            <h2 class="font-weight-bold text-capitalize pl-3 mt-3"><span class="yellow">A</span>bout me</h2>
+
+                        </div>
+
+                        <!-- Grid column -->
+                        <div class="col-md-8 mx-auto text-left">
+
+                            <!-- Content -->
+
+                            <p class=" lead mt-3">{{ port.basic.about_me }}</p>
+                            <hr class="clearfix w-100 d-md-none">
+
+
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+
+                    </div>
+
+            </section>
+
+        <hr class="clear-fix w-100 my-1">
+        <!--expertise-->
+        <section class="expertise  py-md-4 py-2" id="expertise">
+            <div class="container text-center text-md-left">
+
+                <div class="row mt-5">
+                    <!-- Grid column -->
+                    <div class="col-md-4 mx-auto d-flex justify-content-center align-items-center pb-5">
+                        <h2 class="font-weight-bold text-capitalize mt-3 ">e<span class="yellow">x</span>pertise</h2>
+
+                    </div>
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 mx-auto text-left">
+
+                        <!-- Content -->
+                    {% if single %}
+                        {% for expertise in port.expertise.get('data') %}
+
+                         <div class="rounded pb-2">
+                            <div class="card">
+
+                                <div class="card-body text-center ">
+                                    <a class="btn-floating  mx-1">
+
+                                        </a>
+                                    <h5 class="font-weight-bold pb-2">
+
+                                        {{ expertise.title }}
+                                    </h5>
+                                    <p class="text-left px-2">{{ expertise.ex_details }}</p>
+                                </div>
+                            </div>
+                         </div>
+                        <hr class="clearfix w-100 d-md-none">
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if multi %}
+                        {% for expertise in case2 %}
+
+                         <div class="rounded pb-2">
+                            <div class="card">
+
+                                <div class="card-body text-center ">
+                                    <a class="btn-floating  mx-1">
+
+                                        </a>
+                                    <h5 class="font-weight-bold pb-2">
+
+                                        {{ expertise.title }}
+                                    </h5>
+                                    <p class="text-left px-2">{{ expertise.ex_details }}</p>
+                                </div>
+                            </div>
+                         </div>
+
+
+                            <hr class="clearfix w-100 d-md-none">
+                         {% endfor %}
+                    </div>
+
+
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 mx-auto text-left">
+
+                        <!-- Content -->
+                        {% for expertise in case3 %}
+                        <div class="rounded pb-2">
+                            <div class="card">
+
+                                <div class="card-body text-center ">
+                                    <a class="btn-floating  mx-1">
+                                           
+                                        </a>
+                                    <h5 class="font-weight-bold pb-2">
+
+                                        {{ expertise.title }}
+                                    </h5>
+                                    <p class="text-left px-2">{{ expertise.ex_details }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        {% endfor %}
+
+                    </div>
+
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <hr class="clear-fix w-100 my-1" id="skill">
+
+
+
+        <!--skills-->
+        <section class="skills py-md-4 py-2" id="skills">
+            <div class="container text-center text-md-left">
+
+                    <div class="row mt-5">
+<!-- Grid column -->
+                        <div class="col-md-4 mx-auto d-flex justify-content-center align-items-center">
+                            <h2 class="font-weight-bold text-capitalize mt-3 pb-5">sk<span class="yellow">i</span>lls</h2>
+                        </div>
+
+                        <!-- Grid column -->
+                        {% if s_single %}
+                        <div class="col-md-8 mx-auto">
+
+                        {% for skill in port.skill.get('data') %}
+                            <label>{{ skill.language }}</label>
+                            <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;" data-done="{{ skill.efficiency }}" aria-valuenow="{{ skill.efficiency }}" aria-valuemin="0" aria-vauemax="100">
+                                {{ skill.efficiency }}%
+                            </div>
+                            </div>
+                        {% endfor %}
+
+                        </div>
+                        {% endif %}
+
+
+
+
+                        {% if s_multi %}
+
+                        <div class="col-md-4 mx-auto text-left">
+
+                        {% for skill in case4 %}
+                            <label>{{ skill.language }}</label>
+                            <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;" data-done="{{ skill.efficiency }}" aria-valuenow="{{ skill.efficiency }}" aria-valuemin="0" aria-valuemax="100">
+                                {{ skill.efficiency }}%
+                            </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+
+                        <div class="col-md-4 mx-auto text-left">
+
+                        {% for skill in case5 %}
+                            <label>{{ skill.language }}</label>
+                            <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;"  data-done="{{ skill.efficiency }}" aria-valuenow="{{ skill.efficiency }}" aria-valuemin="0" aria-valuemax="100">
+                                {{ skill.efficiency }}%
+                            </div>
+                            </div>
+                        {% endfor %}
+
+                        </div>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </section>
+            <!-- Section:skills -->
+
+
+
+        <hr class="clear-fix w-100 my-1">
+
+        <!--experience-->
+        <section class="experience py-md-4 py-2" id="experience">
+            <div class="container text-center text-md-left">
+
+                        <div class="row mt-5">
+                    <!-- Grid column -->
+                    <div class="col-md-4 mx-auto d-flex  justify-content-center align-items-center ">
+                        <h2 class="font-weight-bold text-capitalize mt-3 pb-2">Experience</h2>
+
+                    </div>
+
+                        <!-- Grid column -->
+                        <div class="col-md-8 mx-auto">
+
+                            <!-- Content -->
+
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-12 ">
+
+			<ul class="timeline">
+                {% for e in port.experience.get('data') %}
+				<li>
+                    <div class="row">
+                    <div class="col-md-5 text-left">
+                        <p class="font-small">{{ e.e_year }}<br>
+                       <span class="font-bold">{{ e.e_company }}</span></p>
+                        <p class="font-small">{{ e.e_role }}
+                    </div>
+                    <div class="col-md-7 text-left">
+
+					<p>{{ e.e_details }}</p>
+                        </div>
+                    </div>
+				</li>
+                {% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+
+                    </div>
+
+            </section>
+
+        <hr class="clear-fix w-100 my-1">
+
+        <!--education-->
+            <section class="education py-md-4 py-2" id="education">
+                <div class="container text-center text-md-left">
+
+                <div class="row mt-5">
+                <!-- Grid column -->
+                    <div class="col-md-4 mx-auto d-flex justify-content-center align-items-center">
+                        <h2 class="font-weight-bold text-capitalize mt-3">Education</h2>
+
+                    </div>
+
+                        <!-- Grid column -->
+                        <div class="col-md-8 mx-auto">
+
+                            <!-- Content -->
+
+
+
+                    <div class="container mt-5 mb-5">
+                        <div class="row">
+                            <div class="col-md-12 ">
+
+                                <ul class="timeline">
+
+                {% for a in port.education.get('data') %}
+				<li>
+
+                    <div class="row">
+                    <div class="col-md-5 text-left">
+                        <p class="font-small">{{ a.a_year }}<br>
+                       <span class="font-bold">{{ a.school }}</span></p>
+                        <p class="font-small">{{ a.degree }}
+                       <br>{{ a.location }}</p>
+                    </div>
+                    <div class="col-md-7 text-left">
+
+					<p>{{ a.a_details }}...</p>
+                        </div>
+
+                    </div>
+
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+
+                    </div>
+
+            </section>
+
+        <hr class="clear-fix w-100 my-1">
+
+
+        <!--profiles-->
+            <section class="profiles py-md-4 py-2" id="profiles">
+                <div class="container text-center text-md-left">
+
+                     <div class="row mt-5">
+<!-- Grid column -->
+                        <div class="col-md-4 mx-auto d-flex justify-content-center align-items-center">
+                            <h2 class="font-weight-bold text-capitalize mt-3 pb-5">profiles</h2>
+                        </div>
+
+                        <!-- Grid column -->
+                        <div class="col-md-8 mx-auto">
+
+                         <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3">
+
+            <div class=" col d-flex flex-row mb-4 text-left">
+                <i class="fab fa-github"></i>
+               <a style="color:black" href="{{ port.social.instagram }}"><div class="pl-3 d-flex flex-column
+                            justify-content-between"> <span>
+                   <h6 class="lead"><strong style="font-weight:700;">Github</strong></h6>
+                                        </span>
+                                        <span class="font-small">{{ port.social.instagram }}</span></div>
+                                </a>
+            </div>
+            <div class=" col d-flex flex-row mb-4 text-left ">
+                <i class="fab fa-twitter"></i>
+                <a style="color:black;" href="{{ port.social.twitter }}"> <div class="pl-3 d-flex flex-column
+                            justify-content-between"> <span>
+                                            <h6 class="lead"><strong style="font-weight:700;">Twitter</strong></h6>
+                                        </span>
+                                        <span class="font-small">{{ port.social.twitter }}</span></div>
+                </a>
+
+            </div>
+
+            <div class=" col d-flex flex-row mb-4 text-left">
+                <i class="fab fa-facebook"></i>
+               <a style="color:black" href="{{ port.social.facebook }}"> <div class="pl-3 d-flex flex-column
+                            justify-content-between"> <span><h6 class="lead"><strong style="font-weight:700;">Facebook</strong></h6></span>
+                    <span class="font-small">{{ port.social.facebook }}</span></div></a>
+
+            </div>
+
+            <div class=" col d-flex flex-row mb-4 text-left">
+                <i class="fab fa-linkedin"></i>
+               <a style="color:black" href="{{ port.social.linkedin }}"> <div class="pl-3 d-flex flex-column
+                            justify-content-between"> <span><h6 class="lead"><strong style="font-weight:700;">Linkedin</strong></h6></span>
+                    <span class="font-small" >{{ port.social.linkedin }}</span></div></a>
+
+            </div>
+                    </div>
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+
+                    </div>
+
+            </section>
+
+
+                            
+
+
+        <hr class="clear-fix w-100 my-1">
+
+
+
+
+
+        <!--freelance projects-->
+        <section class="freelance py-md-4 py-2" id="freelance">
+            <div class="container text-center text-md-left">
+
+                <div class="row mt-5">
+                    <!-- Grid column -->
+                    <div class="col-md-4 mx-auto d-flex  justify-content-center align-items-center">
+                        <h2 class="font-weight-bold text-capitalize mt-3 pb-5">Projects</h2>
+
+                    </div>
+                    <!-- Grid column -->
+                    <div class="col-md-8 mx-auto">
+
+                        <!-- Content -->
+
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3">
+                            <div class="col-sm-4 mt-3">
+	        <div class="item"><img src="{{ url_for('static', filename='img/greenvest1.png')}}" class="img-thumbnail" style="height:236px;"></div>
+            <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                       <a class="" href="/projects/1"><h4 class="w-title text-capitalize">Greenvest</h4></a>
+
+                    <div class="w-more">
+                      <span class="w-category">Web Design</span> / <span class="w-date">18 jun. 2020</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+	    </div>
+
+	    <div class="col-sm-4 mt-3">
+	        <div class="item"><img src="{{ url_for('static', filename='img/timesuit.png')}}" class="img-thumbnail" style="height:236px;"></div>
+            <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                       <a class="" href="/projects/2"><h4 class="w-title text-capitalize">Timesuit</h4></a>
+
+                    <div class="w-more">
+                      <span class="w-category">Web Design</span> / <span class="w-date">28 may. 2020</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+	    </div>
+
+
+
+	    <div class="col-sm-4 mt-3">
+	        <div class="item"><img src="{{ url_for('static', filename='img/tefem.png')}}" class="img-thumbnail" style="height:236px;"></div>
+            <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                  <a class="" href="/projects/3"><h4 class="w-title text-capitalize">rave genie</h4></a>
+                    <div class="w-more">
+                      <span class="w-category">Web App</span> / <span class="w-date">19 Sep. 2019</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+	    </div>
+
+
+	    <div class="col-sm-4 mt-3">
+	        <div class="item text-center"><img src="{{ url_for('static', filename='img/talktailor1.jpg')}}" class="img-thumbnail" style="height:236px; max-width: auto;"></div>
+            <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <a class="" href="/projects/4"><h4 class="w-title text-capitalize">talktailor</h4></a>
+                    <div class="w-more">
+                      <span class="w-category">Mobile App</span> / <span class="w-date">18 Sep. 2018</span>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+	    </div>
+
+
+	    <div class="col-sm-4 mt-3">
+	        <div class="item"><img src="{{ url_for('static', filename='img/openpark1.png')}}" class="img-thumbnail" style="height:236px;"></div>
+            <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                   <a class="" href="/projects/5"><h4 class="w-title text-capitalize">open park</h4></a>
+                    <div class="w-more">
+                      <span class="w-category">Web App</span> / <span class="w-date">18 Sep. 2018</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+	    </div>
+
+	    <div class="col-sm-4 mt-3">
+	        <div class="item"><img src="{{ url_for('static', filename='img/tefem2.png')}}" class="img-thumbnail" style="height:236px;"></div>
+            <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                     <a class="" href="/projects/6"><h4 class="w-title text-capitalize">TEFEM network</h4></a>
+                    <div class="w-more">
+                      <span class="w-category">Web App</span> / <span class="w-date">19 mar. 2019</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+	    </div>
+
+
+                            {% if port.projects %}
+                            {% for project in port.projects.get('data') %}
+                            <div class="col-sm-4 mt-3">
+                                <div class="item"><img src="{{ url_for('static', filename='/uploads/' + project.image + '.png' ) }}" class="img-thumbnail" style="height:236px;"></div>
+                                <div class="work-content">
+                                    <div class="row">
+                                      <div class="col-sm-8">
+                                         <a class="" href="{{ project.url }}"><h4 class="w-title text-capitalize">{{ project.nam }}</h4></a>
+                                        <div class="w-more">
+                                          <span class="w-category">Web App</span> / <span class="w-date">{{ project.date }}</span>
+                                        </div>
+                                      </div>
+
+                                    </div>
+                                  </div>
+
+                            </div>
+
+                            {% endfor %}
+                            {% endif %}
+
+
+
+
+
+
+                        </div>
+
+
+
+                    </div>
+                    <!-- Grid row -->
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="clear-fix w-100 my-1">
+
+        <section class="footer py-md-4 py-2" id="footer">
+
+            <div class="container mx-auto text-md-left">
+
+                <p>
+                    <a href="/"> <i class="material-icons nav__icon mt-2 pt-5">home</i><span class="nav__icon ">Go to main page</span></a>
+                </p>
+
+                <div class="row mt-5">
+                    <!-- Grid column -->
+                    <div class="col-md-12">
+                        <!-- Copyright -->
+                        <div class=" col-md-12 footer-copyright  py-3">© 2020 Copyright:
+                            {{port.basic.display_name}}<a href="/about"> uzu solutions</a>
+                        </div>
+                        <!-- Copyright -->
+                    </div>
+
+
+                    <!-- Grid row -->
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+
+
+    <!-- Footer -->
+
+
+
+
+
+
+
+
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/popper.min.js')}}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/mdb.min.js')}}"></script>
+  <!--waypoint lib-->
+  <script type="text/javascript" src="{{ url_for('static', filename='lib/jquery.waypoints.min.js')}}"></script>
+
+  <!-- Your custom scripts (optional) -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/pPortfolio.js')}}"></script>
+
+</body>
+</html>

@@ -1,0 +1,788 @@
+<!doctype html>
+{% import "bootstrap/wtf.html" as wtf %}
+<html lang="en">
+
+<head>
+    <meta name="theme-color" content="#FED706">
+    <meta name="ms-appliction-navbutton-color" content="#FED706">
+    <meta name="apple-mobile-wep-app-status-bar-style" content="#FED706">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css')}}" type="text/css">
+
+    <title>Uzu solutions</title>
+</head>
+
+<body>
+
+    <main>
+
+
+        <!--NAVBAR (MOBILE/DESKTOP)-->
+        <nav class="navbar navbar-expand-md navbar-light bg-light shadow  bg-white fixed-top  py-1 ">
+            <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='img/corp.png')}}" width="30px" height="30px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto text-capitalizee">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link activeItem" href="/about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/projects">Projects</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link  " href="/blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  bg-yellow" href="#" data-toggle="modal" data-target="#modalRegisterForm">chat with us</a>
+
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+        <div class="container mt-3 pt-4">
+            <div class="row mt-3">
+                <div class="col-12 pt-4 mb-5">
+                    <strong>
+                        <h2 class="">Proudly Nigeria-based, Multi-award Winning software Engineering and Digital Marketing Agency.</h2>
+                    </strong>
+                    <p class="pt-4 mt-2 lead h3-responsive"> We are Uzu Solutions,we build and deploy tech solutions for indivuals, businesses,NGo's we help brands add more value to their clients by heavy lifting all their tech needs in order to enable them do what they do best- Serving their customers.We are the tech team you never had.</p>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--meet our rockstar team-->
+        <section>
+            <div class="container mt-3 pt-4">
+
+                <div class="mb-2">
+                    <h2 class="text-center mb-5">Meet Our Rockstar Team</h2>
+                    <hr class="dividing">
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <div class="rounded pb-5">
+                            <div class="card">
+                                <img src="{{ url_for('static', filename='img/dino1.jpg')}}" class="card-img-top rounded" alt="..." height="330px">
+                                <div class="card-body">
+                                    <h4 class="card-title my-1">Onyemere Dino Darlington</h4>
+                                    <p class="card-text my-1">Snr software Engineer</p>
+                                    <a class="btn  btn-sm    text-capitalize bg-yellow my-0 mt-1" href="/portfolio/2">view portfolio</a>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="rounded pb-5">
+                            <div class="card">
+                                <img src="{{ url_for('static', filename='img/me.jpg')}}" class="card-img-top rounded" alt="...">
+                                <div class="card-body">
+                                    <h4 class="card-title my-1">Ogbonnaya Prosper</h4>
+                                    <p class="card-text my-1">Jnr software Engineer</p>
+                                    <a class="btn  btn-sm    text-capitalize bg-yellow my-0 mt-1" href="/portfolio/1">view portfolio</a>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="rounded pb-5">
+                            <div class="card">
+                                <img src="{{ url_for('static', filename='img/uche.jpg')}}" class="card-img-top rounded" alt="..." height="330px">
+                                <div class="card-body">
+                                    <h4 class="card-title my-1">Nwogu Uchenna</h4>
+                                    <p class="card-text my-1">Lead Strategist | Software Designer</p>
+                                    <a class="btn  btn-sm    text-capitalize bg-yellow my-0 mt-1" href="/portfolio/4">view portfolio</a>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+
+                        <div class="rounded pb-5">
+                            <div class="card">
+                                <img src="{{ url_for('static', filename='img/pascal.JPG')}}" class="card-img-top rounded" alt="..." height="330px">
+                                <div class="card-body">
+                                    <h4 class="card-title my-1">Pascal Uche</h4>
+                                    <p class="card-text my-1">Motion Graphics | Media</p>
+                                    <a class="btn  btn-sm    text-capitalize bg-yellow my-0 mt-1" href="portfolio/7">view portfolio</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="rounded pb-5">
+                            <div class="card">
+                                <img src="{{ url_for('static', filename='img/focus.jpg')}}" class="card-img-top rounded" alt="..." height="330px">
+                                <div class="card-body">
+                                    <h4 class="card-title my-1">Abarikwu Focus Chris</h4>
+                                    <p class="card-text my-1">Software Engineer | Digital marketer</p>
+                                    <a class="btn  btn-sm    text-capitalize bg-yellow my-0 mt-1" href="/portfolio/5">view portfolio</a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="rounded pb-5">
+                            <div class="card">
+                                <img src="{{ url_for('static', filename='img/wisdom.jpg')}}" class="card-img-top rounded" alt="..." height="330px">
+                                <div class="card-body">
+                                    <h4 class="card-title my-1">Wisdom Discipline</h4>
+                                    <p class="card-text my-1">Snr software Engineer</p>
+                                    <a class="btn  btn-sm    text-capitalize bg-yellow my-0 mt-1" href="/portfolio/3">view portfolio</a>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mx-auto">
+
+                    <div class="rounded pb-5">
+                        <div class="card">
+                            <img src="{{ url_for('static', filename='img/collins.png')}}" class="card-img-top rounded" alt="..." height="330px">
+                            <div class="card-body">
+                                <h4 class="card-title my-1">Collins Chinedu</h4>
+                                <p class="card-text my-1">CEO | Tech Lead</p>
+                                <a class="btn  btn-sm    text-capitalize bg-yellow my-0 mt-1" href="/portfolio/6">view portfolio</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+
+
+        <hr class="clear-fix w-100">
+
+
+
+
+
+        <section>
+            <div class="container mt-3 pt-4">
+
+                <div class="mb-2">
+                    <h2 class="text-center mb-5">Our branch offices</h2>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <div class="rounded pb-5">
+                            <div class="card">
+
+                                <div class="card-body text-center">
+                                    <h5 class="font-weight-bold ">
+                                        <a class="btn-floating  mx-1">
+                                            <i class="fas fa-map-marker-alt"></i> Location
+                                        </a>
+                                    </h5>
+                                    <p>Belfast,UK.</p>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="rounded pb-5">
+                            <div class="card">
+
+                                <div class="card-body text-center">
+                                    <h5 class="font-weight-bold ">
+                                        <a class="btn-floating  mx-1">
+                                            <i class="fas fa-map-marker-alt"></i> Location
+                                        </a>
+                                    </h5>
+                                    <p>Zurich,Switzerland.</p>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <div class="rounded pb-5">
+                            <div class="card">
+
+                                <div class="card-body text-center">
+                                    <h5 class="font-weight-bold ">
+                                        <a class="btn-floating  mx-1">
+                                            <i class="fas fa-map-marker-alt"></i> Location
+                                        </a>
+                                    </h5>
+                                    <p>Kigali,Rwanda.</p>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <div class="rounded pb-5">
+                            <div class="card">
+
+                                <div class="card-body text-center">
+                                    <h5 class="font-weight-bold ">
+                                        <a class="btn-floating  mx-1">
+                                            <i class="fas fa-map-marker-alt"></i> Location
+                                        </a>
+                                    </h5>
+                                    <p>New Delhi,India</p>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="rounded pb-5">
+                            <div class="card">
+
+                                <div class="card-body text-center">
+                                    <h5 class="font-weight-bold ">
+                                        <a class="btn-floating  mx-1">
+                                            <i class="fas fa-map-marker-alt"></i> Location
+                                        </a>
+                                    </h5>
+                                    <p>California,USA.</p>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="rounded pb-5">
+                            <div class="card">
+
+                                <div class="card-body text-center">
+                                    <h5 class="font-weight-bold ">
+                                        <a class="btn-floating  mx-1">
+                                            <i class="fas fa-map-marker-alt"></i> Location
+                                        </a>
+                                    </h5>
+                                    <p>Accra.Ghana.</p>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <hr class="clear-fix w-100">
+
+        <!-- Footer -->
+
+
+
+
+
+
+
+
+        <hr class="w-100 footer-divide">
+
+        <!-- Footer -->
+        <footer class=" pt-4 pb-5 mb-3">
+
+
+
+            <section class="talk-to-us py-5" id="talk-to-us">
+                <div class="container">
+
+                    <h2 class="text-center mb-3"> Talk to us</h2>
+                    <hr class="dividing">
+                    <p class="lead text-center">Let us know what we can do for you,We are always online 24/7/365 <span class="reprate"><i class="text-center">minimum reply rate 5mins</i> </span></p>.
+                    <div class="row">
+                        <div class="col-md-6 mt-md-5">
+
+                            <img class="img-fluid " src="{{ url_for('static', filename='img/Telecommuting-rafiki.svg')}}">
+                        </div>
+                        <div class="col-md-5 mx-auto my-auto ">
+                            <div class="d-flex flex-column align-items-center">
+
+
+
+
+
+                                <div class="mt-4 pt-4">
+                      <form action="/" method="post" role="form">
+                          {{ form.hidden_tag() }}
+                        <div class="row">
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.name) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                            <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.job_title) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                             <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.business_name) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.email) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.subject) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.message) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 text-center mb-3">
+
+                          </div>
+                          <div class="col-md-12 text-center">
+                            <button type="submit" class="button button-a button-big button-rounded btn-warning">Send Message</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                                <div class="pt-4"> <p class="text-center">or</p>
+
+                           <ul class="list-unstyled list-inline text-center">
+                               <li class="list-inline-item">
+                                  <p>Talk to a human <strong>ASAP</strong></p>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-fb mx-1">
+                                       <i class="fas fa-phone-alt"></i>
+                                   </a>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-tw mx-1">
+                                       <i class="fab fa-whatsapp"></i>
+                                   </a>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-gplus mx-1">
+                                       <i class="fab fa-telegram-plane"></i>
+                                   </a>
+                               </li>
+
+
+                           </ul>
+                       </div>
+                                <!-- <a  class="btn  text-center  text-uppercase bg-yellow" href="" data-toggle="modal" data-target="#modalRegisterForm">start E-consultation</a>-->
+
+
+
+
+                                <!-- Social buttons -->
+
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+            <hr class="w-100 footer-divide">
+
+
+
+            <!-- Footer Links -->
+            <div class="container text-center text-md-left">
+                <div class=""></div>
+
+                <!--start footer section-->
+                <section class="mt-5 mx-auto">
+                    <div class="container  text-center w-50">
+                        <img class="img-fluid" src="{{ url_for('static', filename='img/corp.png')}}">
+                        <h2 class="pt-3 pb-5 mb-5 text-capitalize">uzu solutions</h2>
+                    </div>
+
+                </section>
+                <!-- Grid row -->
+                <div class="row mt-3 ">
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 mx-auto">
+
+                        <h5 class="">We live online.</h5>
+
+                        <ul class="list-unstyled mt-0 pt-0 ">
+                            <li class="pt-0">
+                                <p class="pb-0 mb-1">Connect with us</p>
+                            </li>
+                            <!-- Social buttons -->
+
+                            <li class="list-inline-item pt-0">
+                                <a class="btn-floating btn-fb mx-1">
+                                    <i class="fab fa-facebook-f"> </i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn-floating btn-tw mx-1">
+                                    <i class="fab fa-twitter"> </i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn-floating btn-gplus mx-1">
+                                    <i class="fab fa-google-plus-g"> </i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn-floating btn-li mx-1">
+                                    <i class="fab fa-linkedin-in"> </i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn-floating btn-dribbble mx-1">
+                                    <i class="fab fa-dribbble"> </i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <!-- Grid column -->
+
+                    <hr class="dividing">
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 mx-auto">
+
+                        <!-- Links -->
+
+                        <h5 class=" text-capitalize mb-2">Head Office</h5>
+                        <p><a class="" href="#">@CTRL-X hub,</a><br>
+                            FUTO,Owerri,Imo state,Nigeria.</p>
+
+
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="clearfix w-100 d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 mx-auto">
+
+                        <!-- Links -->
+
+                        <h5 class=" text-capitalize">Opening hours</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <p>Mon-Fri 09:00 - 18:00 (GMT+1)<br>Mon-Fri 09:00 - 18:00 (GMT+1)</p>
+                            </li>
+                        </ul>
+
+
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </div>
+            <!-- Footer Links -->
+
+
+
+            <hr class="w-100 footer-divide">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a href="#"> uzu solutions</a>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
+
+
+
+
+    </main>
+
+
+    <div class="footer-mob  d-block d-sm-none d-lg-none">
+
+
+
+        <nav class="nav bottom fixed-bottom ">
+            <a href="/" class="nav__link  py-1">
+                <i class="material-icons nav__icon">home</i>
+                <span class="nav__icon">Home</span>
+            </a>
+
+            <a href="/about" class="nav__link active py-1">
+                <i class="material-icons nav__icon">group</i>
+                <span class="nav__icon">About us</span>
+            </a>
+            <a href="/projects" class="nav__link py-1">
+                <i class="material-icons nav__icon">folder</i>
+                <span class="nav__icon">Portfolio</span>
+            </a>
+            <a href="talk.html" class="nav__link py-1" data-toggle="modal" data-target="#modalRegisterForm">
+                <i class="material-icons nav__icon">message</i>
+                <span class="nav__icon">Chat with us</span>
+            </a>
+
+        </nav>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!--modal-->
+
+    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+          <div class="modal-header text-center ">
+
+
+
+
+                     <hr class="dividing">
+
+        <!--h4 class="modal-title w-100 font-weight-bold">Consultation</h4-->
+        <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <section class="mt-3 mx-auto">
+             <div class="container  text-center w-100">
+                 <img class="img-fluid" src="{{ url_for('static', filename='img/corp.png')}}" style="min-width:40px; max-height: 40px; ">
+                <h6 class="pt-2 text-capitalize ">uzu solutions</h6>
+            </div>
+
+        </section>
+
+      <div class="modal-body mx-1">
+          <h2 class="text-center mb-3 w-100 mx-auto"> Talk to us</h2>
+
+                        <div class="col-md-12 mx-auto my-auto ">
+                        <div class="d-flex flex-column align-items-center">
+
+
+
+
+
+                    <div class="mt-4 pt-4">
+                      <form action="/" method="post" role="form">
+                          {{ form.hidden_tag() }}
+                        <div class="row">
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.name) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                            <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.job_title) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                             <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.business_name) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.email) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.subject) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              {{ wtf.form_field(form.message) }}
+                              <div class="validate"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 text-center mb-3">
+
+                          </div>
+                          <div class="col-md-12 text-center">
+                            <button type="submit" class="button button-a button-big button-rounded btn-warning">Send Message</button>
+                          </div>
+                        </div>
+                      </form>
+
+                    </div>
+                           <div class="pt-4"> <p class="text-center">or</p>
+
+                           <ul class="list-unstyled list-inline text-center">
+                               <li class="list-inline-md-item">
+                                  <p>Talk to a human <strong>ASAP</strong></p>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-fb mx-1">
+                                       <i class="fas fa-phone-alt"></i>
+                                   </a>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-tw mx-1">
+                                       <i class="fab fa-whatsapp"></i>
+                                   </a>
+                               </li>
+                               <li class="list-inline-item">
+                                   <a class="btn-floating btn-gplus mx-1">
+                                       <i class="fab fa-telegram-plane"></i>
+                                   </a>
+                               </li>
+
+
+                           </ul>
+                       </div>
+                            <!-- <a  class="btn  text-center  text-uppercase bg-yellow" href="" data-toggle="modal" data-target="#modalRegisterForm">start E-consultation</a>-->
+
+
+
+
+                            <!-- Social buttons -->
+
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- End your project here-->
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="{{url_for('static', filename='js/index.js')}}"></script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+{% import "bootstrap/wtf.html" as wtf %}
+<html lang="en">
+
+<head>
+    <meta name="theme-color" content="#FED706">
+    <meta name="ms-appliction-navbutton-color" content="#FED706">
+    <meta name="apple-mobile-wep-app-status-bar-style" content="#FED706">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/about.css') }}" type="text/css">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <style>
+        body {
+            background-color: wheat;
+        }
+
+        h1{
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #2F4F4F;
+            font-weight: 900;
+            font-size: 50px;
+        } // Get Last index // Get Last index
+
+        .row{
+            justify-content: center;
+        }
+
+        .submit{
+            justify-content: center;
+            text-align: center;
+        }
+
+        .is_hidden{
+            display:none;
+        }
+
+       .down{
+            margin-top:10px !important;
+        }
+
+        .navbar-brand{
+        margin-right:200px !important;
+        }
+
+    </style>
+
+</head>
+
+<body>
+            <nav class="navbar navbar-expand-md navbar-light bg-light shadow  bg-white rounded fixed-top py-1">
+          <a class="navbar-brand" href="#">STAFF PORTAL</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto " >
+              <li class="nav-item ">
+                <a class="nav-link mr-5" href="#">Home</a>
+              </li>
+              <li class="nav-item active mr-5">
+                <a class="nav-link" href="/edit">Edit Portfolio</a>
+              </li>
+              <li class="nav-item mr-5">
+                <a class="nav-link" href="/logout">Log out</a>
+              </li>
+              <li class="nav-item mr-5">
+                <a class="nav-link" href="/create">Make a Blog post</a>
+              </li>
+              <li class="nav-item mr-5">
+                <a class="nav-link" href="/profile">Profile</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary border text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
+
+        <main class="container p-5">
+            {% block main %}{% endblock %}
+        </main>
+        
+
+    </body>
+
+</html>
