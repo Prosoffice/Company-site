@@ -1,51 +1,25 @@
 import os
-import functools
-import urllib.request
-from uuid import uuid4
+from flask import render_template, redirect, session, request, url_for, flash, abort, jsonify
+import models
+from settings import app, db
 
-import uuid
+from flask_login import LoginManager, current_user, login_user, logout_user, login_required  # Flask login utilities
+import uuid  # Generates random codes to use as image id for database storage of image files
 from PIL import Image
-from flask import Flask, render_template, redirect, session, request, url_for, Response, Markup, flash, abort, jsonify, \
-    make_response, send_from_directory
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, current_user, login_user, logout_user, login_required
-from flask_wtf.file import FileAllowed
-from werkzeug.urls import url_parse
-from werkzeug.utils import secure_filename
-
-from markdown import markdown
-from markdown.extensions.codehilite import CodeHiliteExtension
-from markdown.extensions.extra import ExtraExtension
-from micawber import bootstrap_basic, parse_html
-from micawber.cache import Cache as OEmbedCache
-
-from flask_wtf import Form, FlaskForm
-from wtforms import StringField, TextAreaField, IntegerField, FieldList, FormField, PasswordField, BooleanField, \
-    FileField, ext
-from wtforms.validators import InputRequired, Length
+from werkzeug.urls import url_parse  # Used this stuff in the login function to redirect users to their "next" page
 from flask_bootstrap import Bootstrap
-from flask_wtf.csrf import CSRFProtect
+from flask_wtf.csrf import CSRFProtect  # Generates my CSRF tokens
+from forms import *
 
-
-
-ADMIN_PASSWORD = 'secret'
-app = Flask(__name__)
-app.config.from_object(os.environ['APP_SETTINGS'])
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+# Initializing Extensions
 Bootstrap(app)
 login = LoginManager(app)
-login.login_view = 'login'
-
 csrf = CSRFProtect(app)
-
-oembed_providers = bootstrap_basic(OEmbedCache())
-
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
-
-import models
+login.login_view = 'login'
+ADMIN_PASSWORD = 'secret'
 
 
+# Setting up app context for Interactive programming on Terminal
 @app.shell_context_processor
 def make_shell_context():
     return {'db': db, 'models': models}
@@ -56,6 +30,7 @@ def load_staff(id):
     return models.Staff.query.get(int(id))
 
 
+# Routes
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
@@ -78,8 +53,6 @@ def index():
         return redirect("/#contact")
 
 
-
-
 @app.route("/services")
 def services():
     return redirect("/#services")
@@ -88,93 +61,6 @@ def services():
 @app.route("/contact")
 def contact():
     return redirect("/#contact")
-
-
-class ContactForm(Form):
-    name = StringField('Name', validators=[InputRequired()], render_kw={'placeholder': 'Frank Lewis'})
-    job_title = StringField('Job title', validators=[InputRequired()], render_kw={'placeholder': 'Managing Director'})
-    business_name = StringField('Business name', validators=[InputRequired()], render_kw={'placeholder': 'Nestle Inc'})
-    email = StringField('Email', validators=[InputRequired()], render_kw={'placeholder': 'franklewis@nestle.com'})
-    subject = StringField('Project type', validators=[InputRequired()],
-                          render_kw={'placeholder': 'Customer Management Platform'})
-    message = TextAreaField('Project description', validators=[InputRequired()],
-                            render_kw={'placeholder': 'I/We need a ...', 'class': 'form-control', 'rows': 5})
-
-
-class PostForm(Form):
-    title = StringField('Title', validators=[InputRequired(), Length(min=1, max=50)])
-    subtitle = StringField('Subtitle', validators=[InputRequired(), Length(min=1, max=50)])
-    content = TextAreaField('Say something', validators=[InputRequired(), Length(min=1, max=500000)],
-                            render_kw={'class': 'form-control', 'id': "mytextarea"})
-    category = StringField('Category')
-    featured_image = FileField('Featured image', validators=[InputRequired(), FileAllowed(['jpg', 'png', 'gif'],
-                                                                                          'We only accept JPG, PNG or GIF files')])
-
-
-class CommentForm(Form):
-    name = StringField('Name')
-    email = StringField('Email')
-    website = StringField('Website')
-    body = TextAreaField('Comment', validators=[InputRequired(), Length(min=1, max=50000)],
-                         render_kw={'class': 'form-control', 'rows': 10})
-
-
-class LoginForm(Form):
-    username = StringField('Username', validators=[InputRequired()], render_kw={'placeholder': 'Username'})
-    password = PasswordField('Password', validators=[InputRequired()], render_kw={'placeholder': 'Password'})
-    remember_me = BooleanField('Remember me')
-
-
-class SkillForm(Form):
-    language = StringField('Language', validators=[InputRequired()], render_kw={'placeholder': 'HTML'})
-    efficiency = IntegerField('Efficiency (%)', validators=[InputRequired()], render_kw={'placeholder': '50', 'type': 'number'})
-
-
-class ExpertiseForm(Form):
-    title = StringField('Title', validators=[InputRequired(),Length(min=2, max=50)] , render_kw={'placeholder':'Front End Dev'})
-    ex_details = TextAreaField('Details', validators=[InputRequired(),Length(min=1, max=180)], render_kw={'placeholder':'Tell us more'})
-
-
-class ExperienceForm(Form):
-    e_year = StringField('Year', render_kw={'placeholder': '2010-2012'}, validators=[InputRequired()])
-    e_role = StringField('Role', render_kw={'placeholder': 'CEO'}, validators=[InputRequired()])
-    e_company = StringField('Company', render_kw={'placeholder': 'Apple'}, validators=[InputRequired()])
-    e_details = TextAreaField('Details', render_kw={'placeholder': 'What is the company all about?'}, validators=[InputRequired()])
-
-
-class EducationForm(Form):
-    a_year = StringField('Year', render_kw={'placeholder': '2014-2019'}, validators=[InputRequired()])
-    school = StringField('School', render_kw={'placeholder': 'Federal University Of Tech. Owerri'}, validators=[InputRequired()])
-    degree = StringField('Degree', render_kw={'placeholder': 'Bachelor of Technology'}, validators=[InputRequired()])
-    location = StringField('Location', render_kw={'placeholder': 'Owerri, South-Eastern Nigeria'}, validators=[InputRequired()])
-    a_details = TextAreaField('Details', validators=[InputRequired()])
-
-
-class ProjectsForm(Form):
-    url = StringField('Project Url', render_kw={'placeholder':'talktailor.com'})
-    image = FileField('Featured Image', render_kw={'placeholder':'Screen shot of homepage'}, validators=[FileAllowed(['jpg', 'png', 'gif'],
-                                                                                          'We only accept JPG, PNG or GIF files')])
-    nam = StringField('Project Name',render_kw={'placeholder':'GreenVest'})
-    date = StringField('Date',render_kw={'placeholder':'19 Sep. 2019'})
-
-
-class PortfolioForm(Form):
-    display_name = StringField('Name', validators=[InputRequired(), Length(min=1, max=50)], render_kw={"placeholder": "Full Name"})
-    role = StringField('Role', validators=[InputRequired()], render_kw={"placeholder": "Software Engineer | G.Boy"})
-    c_location = StringField('Location', validators=[InputRequired()], render_kw={'placeholder': 'Aba, Nigeria'})
-    phone = StringField('Phone', validators=[InputRequired()], render_kw={'placeholder': '+2348000000000'})
-    email = StringField('Email', validators=[InputRequired()], render_kw={'placeholder': 'heineken@usolutions.com'})
-    about_me = TextAreaField('About me', validators=[InputRequired()],
-                             render_kw={'placeholder': 'Considerable amount of content here'})
-    expertise = FieldList(FormField(ExpertiseForm), min_entries=2, max_entries=12)
-    skill = FieldList(FormField(SkillForm), min_entries=1, max_entries=12)
-    experience = FieldList(FormField(ExperienceForm), min_entries=1, max_entries=10)
-    education = FieldList(FormField(EducationForm), min_entries=1, max_entries=10)
-    projects = FieldList(FormField(ProjectsForm), min_entries=1, max_entries=10)
-    facebook = StringField('Facebook', render_kw={'placeholder': 'facebook.com/mikky'})
-    linkedin = StringField('Linkedin', render_kw={'placeholder': 'linkedin.com/chinenye'})
-    twitter = StringField('Twitter', render_kw={'placeholder': 'twitter.com/ocv'})
-    instagram = StringField('Instagram', render_kw={'placeholder': 'instagram.com/ocv'})
 
 
 @app.route("/staff", methods=["GET", "POST"])
@@ -232,10 +118,11 @@ def edit():
 
     def update_database_entry():
         update = models.Portfolio.query.get(id)
-        print('here')
+
         update.basic = {'display_name': form.display_name.data, 'c_location': form.c_location.data,
                         'phone': form.phone.data,
                         'email': form.email.data, 'role': form.role.data, 'about_me': form.about_me.data}
+        print(update.basic)
         print('done basic')
         update.expertise = {'data': form.expertise.data}
         print('done expertise')
@@ -252,8 +139,6 @@ def edit():
                          'instagram': form.instagram.data}
         print('done social')
 
-        db.session.merge(update)
-        print('merged')
         db.session.commit()
         print('commited....about to return redirect to /edit')
         return redirect(url_for('edit'))
@@ -263,7 +148,7 @@ def edit():
     username = current_user.username
 
     if form.validate_on_submit():
-
+        db.session.rollback()
         for i in form.projects:
             if i.image.data:
                 f = i.image.data
@@ -272,6 +157,8 @@ def edit():
                 file_path = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
                 Image.open(f).save(file_path)
                 i.image.data = image_id
+            else:
+                i.image.data = ""
 
         all_data = models.Portfolio.query.all()
         serialized_data = [data.serialize() for data in all_data]
@@ -283,6 +170,7 @@ def edit():
                 flash("Your portfolio has been successfully added/updated")
                 return redirect('/edit')
             except Exception as e:
+                db.session.rollback()
                 return str(e)
 
         # If the database is not empty check if id is there, if not add to database
@@ -299,6 +187,7 @@ def edit():
                     flash("Your portfolio has been successfully added/updated")
                     return redirect('/edit')
                 except Exception as e:
+                    db.session.rollback()
                     return str(e)
 
             # If control gets here then the id already exist so just update
@@ -311,6 +200,7 @@ def edit():
                     flash("Your portfolio has been successfully added/updated")
                     return redirect('/edit')
                 except Exception as e:
+                    db.session.rollback()
                     print("i am here")
                     return str(e)
 
@@ -378,7 +268,6 @@ def portfolio(staff_id):
         port = staff_portfolio_row
 
         baba = (port.expertise.get('data'))
-    
 
         single = False
         multi = False
@@ -403,7 +292,6 @@ def portfolio(staff_id):
                         case2.append(baba[i])
                         next = True
                         continue
-
 
         skills = (port.skill.get('data'))
 
@@ -432,8 +320,9 @@ def portfolio(staff_id):
                         nex = True
                         continue
 
-
-        return render_template('pportfolio.html', port=port, single=single,multi=multi, s_single=s_single, s_multi=s_multi, case4=case4, case5=case5, case2=case2, case3=case3, staff_id=int(staff_id))
+        return render_template('pportfolio.html', port=port, single=single, multi=multi, s_single=s_single,
+                               s_multi=s_multi, case4=case4, case5=case5, case2=case2, case3=case3,
+                               staff_id=int(staff_id))
     else:
         return ('Sorry, this staff no longer work with us... GUY GO FILL YOUR PORTFOLIO NAH!')
 
@@ -451,7 +340,6 @@ def create():
             file_name = image_id + '.png'
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
             Image.open(f).save(file_path)
-
 
         duplicate_title = False
         all_post = models.Entry.query.all()
@@ -478,7 +366,6 @@ def create():
 def imageuploader():
     file = request.files.get('file')
     if file:
-
         filename = file.filename.lower()
         img_fullpath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         Image.open(file).save(img_fullpath)
@@ -512,13 +399,15 @@ def detail(slug):
         list_of_comments = [i for i in comments]
         no_of_comments = (len(list_of_comments))
         categories = models.Entry.query.with_entities(models.Entry.category).all()
-        return render_template('blog-post.html', post=selected_post, comment_form=comment_form, form=form, slug=slug, comments=comments,
+        return render_template('blog-post.html', post=selected_post, comment_form=comment_form, form=form, slug=slug,
+                               comments=comments,
                                no_of_comments=no_of_comments, categories=categories)
     else:
         selected_post = models.Entry.query.filter_by(slug=slug).first()
 
         if comment_form.validate_on_submit():
-            comment = models.Comment(body=comment_form.body.data, name=comment_form.name.data, email=comment_form.email.data,
+            comment = models.Comment(body=comment_form.body.data, name=comment_form.name.data,
+                                     email=comment_form.email.data,
                                      article=selected_post, website=comment_form.website.data)
             models.Comment.save(comment)
             flash("Your comment has been added to the post", "success")

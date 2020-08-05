@@ -1,17 +1,13 @@
-import app
+from settings import db
 import datetime
-from sqlalchemy.dialects.postgresql import JSON
-from flask_login import LoginManager, UserMixin
-import re
-from markdown import markdown
-from markdown.extensions.codehilite import CodeHiliteExtension
-from markdown.extensions.extra import ExtraExtension
-from micawber import bootstrap_basic, parse_html
-from micawber.cache import Cache as OEmbedCache
-from flask import Markup
 
-db = app.db
-oembed_providers = bootstrap_basic(OEmbedCache())
+
+from sqlalchemy.ext.mutable import MutableDict
+from sqlalchemy.dialects.postgresql import JSON
+from flask_login import UserMixin
+import re
+
+
 
 
 class Staff(UserMixin, db.Model):
@@ -42,13 +38,13 @@ class Portfolio(db.Model):
     __tablename__ = 'portfolio'
 
     staff_id = db.Column(db.Integer, db.ForeignKey('staff.id'), primary_key=True)
-    basic = db.Column(JSON)
-    expertise = db.Column(JSON)
-    skill = db.Column(JSON)
-    experience = db.Column(JSON)
-    education = db.Column(JSON)
-    projects = db.Column(JSON)
-    social = db.Column(JSON)
+    basic = db.Column(MutableDict.as_mutable(JSON))
+    expertise = db.Column(MutableDict.as_mutable(JSON))
+    skill = db.Column(MutableDict.as_mutable(JSON))
+    experience = db.Column(MutableDict.as_mutable(JSON))
+    education = db.Column(MutableDict.as_mutable(JSON))
+    projects = db.Column(MutableDict.as_mutable(JSON))
+    social = db.Column(MutableDict.as_mutable(JSON))
 
     def __init__(self, staff_id, basic, expertise, skill, experience, education, projects, social):
         self.staff_id = staff_id
@@ -97,18 +93,6 @@ class Entry(db.Model):
         if commit:
             db.session.commit()
         return self
-
-    @property
-    def html_content(self):
-        hilite = CodeHiliteExtension(linenums=False, css_class='highlight')
-        extras = ExtraExtension()
-        markdown_content = markdown(self.content, extensions=[hilite, extras])
-        oembed_content = parse_html(
-            markdown_content,
-            oembed_providers,
-            urlize_all=True,
-            maxwidth=app.config['SITE_WIDTH'])
-        return Markup(oembed_content)
 
 
     def serialize(self):
