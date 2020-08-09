@@ -1,9 +1,12 @@
-
+.bg-yellow {
+     background-color:#FED706 !important;
+    color: black !important;
+}
 html,
 body,
 header,
 .view {
-  height: 97%;
+  height: 100%;
 }
 body {
     
@@ -67,15 +70,23 @@ a.navbar-brand.pr-2{
     content: "\f3c5";
     color: #000;
     background-color: #FED706;
+    
 }
+.fas a {
+    font-family: 'lato',sans-serif !important;
+}
+
 
 @media (max-width: 991px) {
   
 }
 
+h1 {
+  letter-spacing: 1px;
+}
 
 h5 {
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .hr-light {
@@ -326,6 +337,31 @@ h5 {
      font-size: 13px;
      margin-bottom: 20px
  }
+.item{
+			left: 0;
+			top: 0;
+			position: relative;
+			overflow: hidden;
+			margin-top:50px;
+			
+		}
+		.item img{
+			-webkit-transition: all 1s ease;
+  			transition: all 1s ease;
+  			 
+		}
+
+
+		.item img:hover{
+			-webkit-transform: scale(1.3);
+  			transform: scale(1.3);
+
+		}
+		.img-thumbnail{
+		    border:0px;
+		    border-radius:0px;
+		}
+
 
 .people.cover.item .social {
      font-size: 18px
@@ -362,8 +398,6 @@ h5 {
 .progress-bar{
     background-color:  #FED706;
     color: #000;
-    width:0;
-
 }
 
 .skill label {

@@ -7,6 +7,7 @@ from flask_login import LoginManager, current_user, login_user, logout_user, log
 import uuid  # Generates random codes to use as image id for database storage of image files
 from PIL import Image
 from werkzeug.urls import url_parse  # Used this stuff in the login function to redirect users to their "next" page
+from werkzeug.security import check_password_hash, generate_password_hash
 from flask_bootstrap import Bootstrap
 from flask_wtf.csrf import CSRFProtect  # Generates my CSRF tokens
 from forms import *
@@ -71,9 +72,13 @@ def login():
         return redirect(url_for('edit'))
     form = LoginForm()
     if form.validate_on_submit():
-        staff = models.Staff.query.filter_by(username=form.username.data).first_or_404(
+        password = form.password.data
+        username = form.username.data
+
+        staff = models.Staff.query.filter_by(username=username).first_or_404(
             description='No staff with that username')
-        if staff is None or staff.password != form.password.data:
+
+        if staff is None or not check_password_hash(staff.password, password):
             flash('Invalid username or password')
             return redirect(url_for('login'))
         login_user(staff, remember=form.remember_me.data)
@@ -237,10 +242,88 @@ def profile(staff_id):
     return render_template('profile.html', posts=all_post, staff_id=current_user.id)
 
 
+@login_required
+@app.route('/super_user', methods=['GET', 'POST'])
+def super_user():
+    form = RegForm()
+    if form.validate_on_submit():
+        username = form.username.data
+        full_name = form.full_name.data
+        password = form.password.data
+        role = form.role.data
+        image = form.image.data
+
+        # Process password
+        password_hash = generate_password_hash(password)
+
+        # Process image
+        f = image
+        image_id = str(uuid.uuid4())
+        file_name = image_id + '.png'
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
+        Image.open(f).save(file_path)
+
+        # Store staff to the database
+        staff = models.Staff(
+            username=username,
+            full_name=full_name,
+            password=password_hash,
+            role=role,
+            image=image_id
+        )
+        db.session.add(staff)
+        db.session.commit()
+        print(f"Staff {username} added")
+        return redirect("/")
+    return render_template('super.html', form=form)
+
+
 @app.route("/about")
 def about():
     form = ContactForm()
-    return render_template('about.html', form=form)
+    all_staff = models.Staff.query.all()
+
+    single = False
+    multi = False
+    case1 = []
+    case2 = []
+    case3 = []
+
+    if len(all_staff) == 1:
+        single = True
+    elif len(all_staff) > 1:
+        multi = True
+        # initialise a next variable for next set
+        next1 = False
+        next2 = False
+        for i in range(len(all_staff)):
+            if i == 0:
+                case1.append(all_staff[i])
+                next1 = True
+                continue
+            elif next1 and not next2:
+                case2.append(all_staff[i])
+                next1 = False
+                next2 = True
+                continue
+            elif next2 and not next1:
+                case3.append(all_staff[i])
+                next2 = False
+                next1 = False
+                continue
+            elif not next1 and not next2:
+                case1.append(all_staff[i])
+                next1 = True
+                next2 = False
+                continue
+
+
+        # This code here is a hard coding to get quick result, it will surely be refactored when the app is stable
+        # This is done so that the last staff to be displayed is placed at the center
+        last_element = case1.pop(-1)
+        case2.append(last_element)
+
+    return render_template('about.html', form=form, all_staff=all_staff, single=single, multi=multi, case1=case1, case2=case2, case3=case3)
 
 
 @app.route("/projects")
@@ -249,80 +332,85 @@ def projects():
     return render_template("projects.html", form=form)
 
 
-@app.route("/portfolio/<staff_id>")
-def portfolio(staff_id):
-    port_base = models.Portfolio.query.all()
-    serialized_data = [data.serialize() for data in port_base]
+@app.route("/portfolio/<username>")
+def portfolio(username):
+    staff_base = models.Staff.query.all()
+    serialized_data = [data.serialize() for data in staff_base]
 
     # Search the Database and ensure the Staff username input exist
 
-    port_found = False
+    staff_found = False
 
-    for port_row in serialized_data:
-        if int(staff_id) in port_row.values():
-            port_found = True
+    for staff_row in serialized_data:
+        if username in staff_row.values():
+            staff_found = True
             break
 
-    if port_found:
+    if staff_found:
+        staff = models.Staff.query.filter_by(username=username).one()
+        staff_id = staff.id
         staff_portfolio_row = models.Portfolio.query.filter_by(staff_id=staff_id).first()
         port = staff_portfolio_row
 
-        baba = (port.expertise.get('data'))
+        if port != None:
+            baba = (port.expertise.get('data'))
 
-        single = False
-        multi = False
-        case2 = []
-        case3 = []
+            single = False
+            multi = False
+            case2 = []
+            case3 = []
 
-        if len(baba) == 1:
-            single = True
-        elif len(baba) > 1:
-            multi = True
-            next = False
-            for i in range(len(baba)):
-                if i == 0:
-                    case2.append(baba[i])
-                    next = True
-                else:
-                    if next:
-                        case3.append(baba[i])
-                        next = False
-                        continue
-                    else:
+            if len(baba) == 1:
+                single = True
+            elif len(baba) > 1:
+                multi = True
+                next = False
+                for i in range(len(baba)):
+                    if i == 0:
                         case2.append(baba[i])
                         next = True
-                        continue
-
-        skills = (port.skill.get('data'))
-
-        s_single = False
-        s_multi = False
-        case4 = []
-        case5 = []
-
-        if len(skills) == 1:
-            s_single = True
-
-        elif len(skills) > 1:
-            s_multi = True
-            nex = False
-            for i in range(len(skills)):
-                if i == 0:
-                    case4.append(skills[i])
-                    nex = True
-                else:
-                    if nex:
-                        case5.append(skills[i])
-                        nex = False
-                        continue
                     else:
+                        if next:
+                            case3.append(baba[i])
+                            next = False
+                            continue
+                        else:
+                            case2.append(baba[i])
+                            next = True
+                            continue
+
+            skills = (port.skill.get('data'))
+
+            s_single = False
+            s_multi = False
+            case4 = []
+            case5 = []
+
+            if len(skills) == 1:
+                s_single = True
+
+            elif len(skills) > 1:
+                s_multi = True
+                nex = False
+                for i in range(len(skills)):
+                    if i == 0:
                         case4.append(skills[i])
                         nex = True
-                        continue
+                    else:
+                        if nex:
+                            case5.append(skills[i])
+                            nex = False
+                            continue
+                        else:
+                            case4.append(skills[i])
+                            nex = True
+                            continue
 
-        return render_template('pportfolio.html', port=port, single=single, multi=multi, s_single=s_single,
-                               s_multi=s_multi, case4=case4, case5=case5, case2=case2, case3=case3,
-                               staff_id=int(staff_id))
+            return render_template('pportfolio.html', port=port, single=single, multi=multi, s_single=s_single,
+                                   s_multi=s_multi, case4=case4, case5=case5, case2=case2, case3=case3,
+                                   staff_id=int(staff_id))
+        else:
+            return ('Sorry, this staff no longer work with us... GUY GO FILL YOUR PORTFOLIO NAH!')
     else:
         return ('Sorry, this staff no longer work with us... GUY GO FILL YOUR PORTFOLIO NAH!')
 

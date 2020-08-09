@@ -1,7 +1,6 @@
 from settings import db
 import datetime
 
-
 from sqlalchemy.ext.mutable import MutableDict
 from sqlalchemy.dialects.postgresql import JSON
 from flask_login import UserMixin
@@ -13,20 +12,30 @@ import re
 class Staff(UserMixin, db.Model):
     __tablename__ = 'staff'
 
+
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(), nullable=False)
-    password = db.Column(db.String(20), nullable=False)
+    username = db.Column(db.String(), nullable=False,)
+    full_name = db.Column(db.String(), nullable=False)
+    password = db.Column(db.String(), nullable=False)
+    role = db.Column(db.String(), nullable=False)
+    image = db.Column(db.String(), nullable=False)
     post = db.relationship('Entry', backref='author', lazy='dynamic')
 
-    def __init__(self, username, password):
+    def __init__(self, username, password, full_name, role, image):
         self.username = username
         self.password = password
+        self.full_name = full_name
+        self.role = role
+        self.image = image
 
     def serialize(self):
         return {
             'id': self.id,
             'username': self.username,
             'password': self.password,
+            'full_name': self.full_name,
+            'self.role': self.role,
+            'self.image': self.image,
             'post': self.post
         }
 

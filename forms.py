@@ -1,11 +1,17 @@
 from flask_wtf import Form
-from wtforms import StringField, TextAreaField, IntegerField, FieldList, FormField, PasswordField, BooleanField, FileField
+from wtforms import StringField, TextAreaField, IntegerField, FieldList, FormField, PasswordField, BooleanField, \
+    FileField
 from wtforms.validators import InputRequired, Length
 from flask_wtf.file import FileAllowed
 
 
-
-
+class RegForm(Form):
+    username = StringField('Username', validators=[InputRequired()], render_kw={'placeholder': 'Dino'})
+    full_name = StringField('Full Name', validators=[InputRequired()], render_kw={'placeholder': 'Frank Lewis'})
+    password = PasswordField('Password', validators=[InputRequired()])
+    role = StringField('Role', validators=[InputRequired()], render_kw={'placeholder': 'Software Engineer'})
+    image = FileField('Featured image', validators=[InputRequired(), FileAllowed(['jpg', 'png', 'gif'],
+                                                                                 'We only accept JPG, PNG or GIF files')])
 
 
 class ContactForm(Form):
@@ -45,39 +51,47 @@ class LoginForm(Form):
 
 class SkillForm(Form):
     language = StringField('Language', validators=[InputRequired()], render_kw={'placeholder': 'HTML'})
-    efficiency = IntegerField('Efficiency (%)', validators=[InputRequired()], render_kw={'placeholder': '50', 'type': 'number'})
+    efficiency = IntegerField('Efficiency (%)', validators=[InputRequired()],
+                              render_kw={'placeholder': '50', 'type': 'number'})
 
 
 class ExpertiseForm(Form):
-    title = StringField('Title', validators=[InputRequired(),Length(min=2, max=50)] , render_kw={'placeholder':'Front End Dev'})
-    ex_details = TextAreaField('Details', validators=[InputRequired(),Length(min=1, max=180)], render_kw={'placeholder':'Tell us more'})
+    title = StringField('Title', validators=[InputRequired(), Length(min=2, max=50)],
+                        render_kw={'placeholder': 'Front End Dev'})
+    ex_details = TextAreaField('Details', validators=[InputRequired(), Length(min=1, max=180)],
+                               render_kw={'placeholder': 'Tell us more'})
 
 
 class ExperienceForm(Form):
     e_year = StringField('Year', render_kw={'placeholder': '2010-2012'}, validators=[InputRequired()])
     e_role = StringField('Role', render_kw={'placeholder': 'CEO'}, validators=[InputRequired()])
     e_company = StringField('Company', render_kw={'placeholder': 'Apple'}, validators=[InputRequired()])
-    e_details = TextAreaField('Details', render_kw={'placeholder': 'What is the company all about?'}, validators=[InputRequired()])
+    e_details = TextAreaField('Details', render_kw={'placeholder': 'What is the company all about?'},
+                              validators=[InputRequired()])
 
 
 class EducationForm(Form):
     a_year = StringField('Year', render_kw={'placeholder': '2014-2019'}, validators=[InputRequired()])
-    school = StringField('School', render_kw={'placeholder': 'Federal University Of Tech. Owerri'}, validators=[InputRequired()])
+    school = StringField('School', render_kw={'placeholder': 'Federal University Of Tech. Owerri'},
+                         validators=[InputRequired()])
     degree = StringField('Degree', render_kw={'placeholder': 'Bachelor of Technology'}, validators=[InputRequired()])
-    location = StringField('Location', render_kw={'placeholder': 'Owerri, South-Eastern Nigeria'}, validators=[InputRequired()])
+    location = StringField('Location', render_kw={'placeholder': 'Owerri, South-Eastern Nigeria'},
+                           validators=[InputRequired()])
     a_details = TextAreaField('Details', validators=[InputRequired()])
 
 
 class ProjectsForm(Form):
-    url = StringField('Project Url', render_kw={'placeholder':'talktailor.com'})
-    image = FileField('Featured Image', render_kw={'placeholder':'Screen shot of homepage'}, validators=[FileAllowed(['jpg', 'png', 'gif'],
-                                                                                          'We only accept JPG, PNG or GIF files')])
-    nam = StringField('Project Name',render_kw={'placeholder':'GreenVest'})
-    date = StringField('Date',render_kw={'placeholder':'19 Sep. 2019'})
+    url = StringField('Project Url', render_kw={'placeholder': 'talktailor.com'})
+    image = FileField('Featured Image', render_kw={'placeholder': 'Screen shot of homepage'},
+                      validators=[FileAllowed(['jpg', 'png', 'gif'],
+                                              'We only accept JPG, PNG or GIF files')])
+    nam = StringField('Project Name', render_kw={'placeholder': 'GreenVest'})
+    date = StringField('Date', render_kw={'placeholder': '19 Sep. 2019'})
 
 
 class PortfolioForm(Form):
-    display_name = StringField('Name', validators=[InputRequired(), Length(min=1, max=50)], render_kw={"placeholder": "Full Name"})
+    display_name = StringField('Name', validators=[InputRequired(), Length(min=1, max=50)],
+                               render_kw={"placeholder": "Full Name"})
     role = StringField('Role', validators=[InputRequired()], render_kw={"placeholder": "Software Engineer | G.Boy"})
     c_location = StringField('Location', validators=[InputRequired()], render_kw={'placeholder': 'Aba, Nigeria'})
     phone = StringField('Phone', validators=[InputRequired()], render_kw={'placeholder': '+2348000000000'})
