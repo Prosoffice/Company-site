@@ -242,8 +242,9 @@ def profile(staff_id):
     return render_template('profile.html', posts=all_post, staff_id=current_user.id)
 
 
-@login_required
+
 @app.route('/super_user', methods=['GET', 'POST'])
+@login_required
 def super_user():
     form = RegForm()
     if form.validate_on_submit():
@@ -298,6 +299,7 @@ def about():
         next2 = False
         for i in range(len(all_staff)):
             if i == 0:
+
                 case1.append(all_staff[i])
                 next1 = True
                 continue
